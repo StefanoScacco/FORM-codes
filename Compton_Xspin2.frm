@@ -16,7 +16,7 @@ index alpha, beta, gamma, delta, rho, sigma, mu, nu, zeta, tau, theta, lambda;
 * note 1: you can check Ward Identities by substituting k to eps or kpr to epspr
 * note 2: csi = infty is Lorentz gauge. csi = 1 is Feynman gauge. Result is csi independent!
 
-L Comp = (-e^2*((g_(1, epspr)*(-i_*(g_(1, p) + g_(1, k)) + me*g_(1))*g_(1, eps))/(2*p.k) +
+L Comp = (-e^2*((g_(1, epspr)*(-i_*(g_(1, p) + g_(1, eps)) + me*g_(1))*g_(1, k))/(2*p.k) +
          (g_(1, eps)*(-i_*(g_(1, p) - g_(1, kpr)) + me*g_(1))*g_(1, epspr))/(-2*p.kpr)) +
 
 	 ge*gg/(2*Lambda^2) * eps(alpha) * epspr(beta) * g_(1, rho) * (ppr(sigma) + p(sigma)) *
