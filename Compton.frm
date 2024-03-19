@@ -35,10 +35,10 @@ id kpr.epr = 0;
 id e.e = 1;
 id epr.epr = 1;
 
-*try extra constraints
-id p.k = -m*w;
-id p.kpr = -m*wpr;
-id k.kpr = m*wpr-m*w;
+*impose scalar products
+*id p.k = -m*w;
+*id p.kpr = -m*wpr;
+*id k.kpr = m*wpr-m*w;
 
 print;
 .sort
