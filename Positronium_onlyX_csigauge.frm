@@ -1,4 +1,4 @@
-S me, mX, e, ge, gg, Lambda, E, p, costheta, w1, w2, csi;
+S me, mX, E, p, costheta, csi;
 * S defines scalar quantities. I added quantities for 2 systems of reference.
 
 V q, p1, p2, k1, k2, eps1, eps2;
