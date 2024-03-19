@@ -3,6 +3,7 @@ This is a set of codes that allow for modulus squared calculations for Compton s
 Fermion polarizations have been summed. Spin 2 polarizations have been summed. Photon polarizations have not been summed.
 
 To execute code, install FORM on your device, and simply type at command line:
+
 form <filename.frm>
 
 execution might take a couple of minutes...

@@ -1,4 +1,4 @@
-S  me, mX, e, w, wpr, csi;
+S me, mX, e, ge, gg, Lambda, w, wpr, csi;
 * S defines scalar quantities
 
 V q, p, ppr, k, kpr, eps, epspr;
@@ -12,17 +12,23 @@ index alpha, beta, gamma, delta, rho, sigma, mu, nu, zeta, tau, theta, lambda;
 
 * The amplitude follows (with real polarizations). Also, the imaginary unit is i_
 * The Feynman rule tensor has been defined FeynXgg(mu, nu, rho, sigma, k, kpr)
-* I want to study this amplitude better. I removed propagator denominator and constants in front.
 
 * note 1: you can check Ward Identities by substituting k to eps or kpr to epspr
 * note 2: csi = infty is Lorentz gauge. csi = 1 is Feynman gauge. Result is csi independent!
 
-L Comp = eps(alpha) * epspr(beta) * g_(1, rho) * (ppr(sigma) + p(sigma)) *
-       	 Sumpol(mu, nu, rho, sigma) * FeynXgg(mu, nu, alpha, beta, k, kpr) *
+L Comp = (-e^2*((g_(1, epspr)*(-i_*(g_(1, p) + g_(1, k)) + me*g_(1))*g_(1, eps))/(2*p.k) +
+         (g_(1, eps)*(-i_*(g_(1, p) - g_(1, kpr)) + me*g_(1))*g_(1, epspr))/(-2*p.kpr)) +
+
+	 ge*gg/(2*Lambda^2) * eps(alpha) * epspr(beta) * g_(1, rho) * (ppr(sigma) + p(sigma)) *
+	 Sumpol(mu, nu, rho, sigma)/(-2*k.kpr + mX*mX) * FeynXgg(mu, nu, alpha, beta, k, kpr)) *
 	 (-i_*g_(1, p) + me*g_(1)) *
-         eps(gamma) * epspr(lambda) * g_(1, delta) * (ppr(theta) + p(theta)) *
-	 Sumpol(zeta, tau, delta, theta) * FeynXgg(zeta, tau, gamma, lambda, k, kpr) *
-	 (-i_*g_(1, ppr) + me*g_(1));
+
+	 (-e^2*((g_(1, eps)*(-i_*(g_(1, p) + g_(1, k)) + me*g_(1))*g_(1, epspr))/(2*p.k) +
+         (g_(1, epspr)*(-i_*(g_(1, p) - g_(1, kpr)) + me*g_(1))*g_(1, eps))/(-2*p.kpr)) -
+
+         ge*gg/(2*Lambda^2) * eps(gamma) * epspr(lambda) * g_(1, delta) * (ppr(theta) + p(theta)) *
+	 Sumpol(zeta, tau, delta, theta)/(-2*k.kpr + mX*mX) * FeynXgg(zeta, tau, gamma, lambda, k, kpr)) *
+         (-i_*g_(1, ppr) + me*g_(1));
 
 *define the tensors needed
 id Sumpol(mu?, nu?, rho?, sigma?) = 1/2*Proj(mu, rho)*Proj(nu, sigma) + 1/2*Proj(mu, sigma)*Proj(nu, rho) - 1/3*Proj(mu, nu)*Proj(rho, sigma);
@@ -66,7 +72,7 @@ id k.kpr = me*wpr - me*w;
 *id wpr = w; *low energy limit
 *id wpr = 0; *high energy limit
 
-Bracket eps.epspr, k.epspr, kpr.eps, me, mX;
+Bracket eps.epspr, k.epspr, kpr.eps, me, mX, gg, ge, Lambda, e;
 
 print;
 .sort
