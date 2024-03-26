@@ -14,7 +14,7 @@ index alpha, beta, gamma, delta, rho, sigma, mu, nu, zeta, tau, theta, lambda;
 * The Feynman rule tensor has been defined FeynXgg(mu, nu, rho, sigma, k, kpr)
 * I want to study this amplitude better. I removed propagator denominator and constants in front.
 
-* note 1: you can check Ward Identities by substituting k to eps or kpr to epspr
+* note 1: you can check Ward Identities by substituting k to eps or kpr to epspr, but CANCELLING p.eps = 0 and p.epspr = 0
 * note 2: csi = infty is Lorentz gauge. csi = 1 is Feynman gauge. Result is csi independent!
 
 L Comp = eps(alpha) * epspr(beta) * g_(1, rho) * (ppr(sigma) + p(sigma)) *
@@ -24,9 +24,25 @@ L Comp = eps(alpha) * epspr(beta) * g_(1, rho) * (ppr(sigma) + p(sigma)) *
 	 Sumpol(zeta, tau, delta, theta) * FeynXgg(zeta, tau, gamma, lambda, k, kpr) *
 	 (-i_*g_(1, ppr) + me*g_(1));
 
-*define the tensors needed
+* define the tensors needed
 id Sumpol(mu?, nu?, rho?, sigma?) = 1/2*Proj(mu, rho)*Proj(nu, sigma) + 1/2*Proj(mu, sigma)*Proj(nu, rho) - 1/3*Proj(mu, nu)*Proj(rho, sigma);
 id Proj(mu?, nu?) = d_(mu, nu) + q(mu)*q(nu)/(mX*mX);
+
+* convenient to put constraints to 0 here to make code faster
+id ppr = p + k - kpr;
+id q = k - kpr;
+
+id p.eps = 0;
+id p.epspr = 0;
+id k.k = 0;
+id kpr.kpr = 0;
+id k.eps = 0;
+id kpr.epspr = 0;
+
+* this .sort is the key to light speed code!
+.sort
+
+* substitute Feynman rule
 id FeynXgg(mu?, nu?, rho?, sigma?, k?, kpr?) =
           - d_(rho, sigma)*(k(mu)*kpr(nu) + k(nu)*kpr(mu))
           + d_(mu, rho)*kpr(nu)*k(sigma)
@@ -43,6 +59,9 @@ id FeynXgg(mu?, nu?, rho?, sigma?, k?, kpr?) =
 
 id ppr = p + k - kpr;
 id q = k - kpr;
+
+* select your favorite gauge
+*id 1/csi = 0;
 
 trace4, 1;
 print;

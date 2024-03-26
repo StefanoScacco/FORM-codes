@@ -15,7 +15,7 @@ index mu, nu, gamma, delta, rho, sigma, alpha, beta;
 L Decay = Sumpol(mu, nu, gamma, delta) * FeynXgg(mu, nu, rho, sigma, k1, k2) * FeynXgg(gamma, delta, alpha, beta, k1, k2) *
   	  e1(rho) * e2(sigma) * e1(alpha) * e2(beta);
 
-*who are the tensors added?
+* who are the tensors added?
 id Sumpol(mu?, nu?, rho?, sigma?) = 1/2*Proj(mu, rho)*Proj(nu, sigma) + 1/2*Proj(mu, sigma)*Proj(nu, rho) - 1/3*Proj(mu, nu)*Proj(rho, sigma);
 id Proj(mu?, nu?) = d_(mu, nu) + pX(mu)*pX(nu)/(mX*mX);
 id FeynXgg(mu?, nu?, rho?, sigma?, k1?, k2?) =
@@ -33,14 +33,14 @@ id FeynXgg(mu?, nu?, rho?, sigma?, k1?, k2?) =
           - d_(nu, rho)*k2(mu)*k2(sigma));
 
 
-*add constraints
+* add constraints
 id pX = k1 + k2;
 
 
 print;
 .sort
 
-*more constraints
+* more constraints
 id k1.e1 = 0;
 id k2.e2 = 0;
 id e1.e1 = 1;

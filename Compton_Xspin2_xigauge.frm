@@ -13,7 +13,7 @@ index alpha, beta, gamma, delta, rho, sigma, mu, nu, zeta, tau, theta, lambda;
 * The amplitude follows (with real polarizations). Also, the imaginary unit is i_
 * The Feynman rule tensor has been defined FeynXgg(mu, nu, rho, sigma, k, kpr)
 
-* note 1: you can check Ward Identities by substituting k to eps or kpr to epspr
+* note 1: you can check Ward Identities by substituting k to eps or kpr to epspr, but CANCELLING p.eps = 0 and p.epspr = 0
 * note 2: csi = infty is Lorentz gauge. csi = 1 is Feynman gauge. Result is csi independent!
 
 L Comp = (-e^2*((g_(1, epspr)*(-i_*(g_(1, p) + g_(1, k)) + me*g_(1))*g_(1, eps))/(2*p.k) +
@@ -30,9 +30,25 @@ L Comp = (-e^2*((g_(1, epspr)*(-i_*(g_(1, p) + g_(1, k)) + me*g_(1))*g_(1, eps))
 	 Sumpol(zeta, tau, delta, theta)/(-2*k.kpr + mX*mX) * FeynXgg(zeta, tau, gamma, lambda, k, kpr)) *
          (-i_*g_(1, ppr) + me*g_(1));
 
-*define the tensors needed
+* define the tensors needed
 id Sumpol(mu?, nu?, rho?, sigma?) = 1/2*Proj(mu, rho)*Proj(nu, sigma) + 1/2*Proj(mu, sigma)*Proj(nu, rho) - 1/3*Proj(mu, nu)*Proj(rho, sigma);
 id Proj(mu?, nu?) = d_(mu, nu) + q(mu)*q(nu)/(mX*mX);
+
+* convenient to put constraints to 0 here to make code faster
+id ppr = p + k - kpr;
+id q = k - kpr;
+
+id p.eps = 0;
+id p.epspr = 0;
+id k.k = 0;
+id kpr.kpr = 0;
+id k.eps = 0;
+id kpr.epspr = 0;
+
+* this .sort is the key to light speed code!
+.sort
+
+* substitute Feynman rule
 id FeynXgg(mu?, nu?, rho?, sigma?, k?, kpr?) =
           - d_(rho, sigma)*(k(mu)*kpr(nu) + k(nu)*kpr(mu))
           + d_(mu, rho)*kpr(nu)*k(sigma)
@@ -49,6 +65,9 @@ id FeynXgg(mu?, nu?, rho?, sigma?, k?, kpr?) =
 
 id ppr = p + k - kpr;
 id q = k - kpr;
+
+* select your favorite gauge
+id 1/csi = 0;
 
 trace4, 1;
 print;

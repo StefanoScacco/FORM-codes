@@ -13,7 +13,7 @@ index alpha, beta, gamma, delta, rho, sigma, mu, nu, zeta, tau, theta, lambda;
 * The amplitude follows (with real polarizations). Also, the imaginary unit is i_
 * The Feynman rule tensor has been defined FeynXgg(mu, nu, rho, sigma, k1, k2)
 
-* note 1: you can check Ward Identities by substituting k1 to eps1 or k2 to eps2
+* note 1: you can check Ward Identities by substituting k1 to eps1 or k2 to eps2, but CANCELLING p1.eps1 = 0, p1.eps2 = 0, k1.eps2 = 0, k2.eps1 = 0
 * note 2: csi = infty is Lorentz gauge. csi = 1 is Feynman gauge. Result is csi independent!
 
 L Posit = (-e^2*((g_(1, eps2)*(-i_*(g_(1, p1) - g_(1, k1)) + me*g_(1))*g_(1, eps1))/(-2*p1.k1) +
@@ -33,6 +33,24 @@ L Posit = (-e^2*((g_(1, eps2)*(-i_*(g_(1, p1) - g_(1, k1)) + me*g_(1))*g_(1, eps
 *define the tensors needed
 id Sumpol(mu?, nu?, rho?, sigma?) = 1/2*Proj(mu, rho)*Proj(nu, sigma) + 1/2*Proj(mu, sigma)*Proj(nu, rho) - 1/3*Proj(mu, nu)*Proj(rho, sigma);
 id Proj(mu?, nu?) = d_(mu, nu) + q(mu)*q(nu)/(mX*mX);
+
+* convenient to put constraints to 0 here to make code faster
+id p2 = k1 + k2 - p1;
+id q = k1 + k2;
+
+id p1.eps1 = 0;
+id p1.eps2 = 0;
+id k1.k1 = 0;
+id k2.k2 = 0;
+id k1.eps1 = 0;
+id k2.eps2 = 0;
+id k1.eps2 = 0;
+id k2.eps1 = 0;
+
+* this .sort is the key to light speed code!
+.sort
+
+* substitute Feynman rule
 id FeynXgg(mu?, nu?, rho?, sigma?, k1?, k2?) =
             d_(rho, sigma)*(k1(mu)*k2(nu) + k1(nu)*k2(mu))
           - d_(mu, rho)*k2(nu)*k1(sigma)
@@ -49,6 +67,9 @@ id FeynXgg(mu?, nu?, rho?, sigma?, k1?, k2?) =
 
 id p2 = k1 + k2 - p1;
 id q = k1 + k2;
+
+* select your favorite gauge
+id 1/csi = 0;
 
 trace4, 1;
 print;
