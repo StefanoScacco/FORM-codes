@@ -14,8 +14,8 @@ index mu, nu, alpha, beta, rho, sigma, gamma, lambda;
 * note: csi = infty is Lorentz gauge. csi = 1 is Feynman gauge. Result is csi independent!
 
 L Bhabha =
-*      	   XresPhot1(mu, nu, alpha, beta, p1, p2, p3, p4, q) * XresPhot1(rho, sigma, gamma, lambda, p1, p2, p3, p4, q) * Tr1(1, mu, p1, rho, p2) * Tr2(2, nu, p4, sigma, p3)
-*        + XresPhot2(mu, nu, alpha, beta, p1, p2, p3, p4, k) * XresPhot2(rho, sigma, gamma, lambda, p1, p2, p3, p4, k) * Tr3(3, mu, p1, rho, p3) * Tr4(4, nu, p4, sigma, p2)
+     	  XresPhot1(mu, nu, alpha, beta, p1, p2, p3, p4, q) * XresPhot1(rho, sigma, gamma, lambda, p1, p2, p3, p4, q) * Tr1(1, mu, p1, rho, p2) * Tr2(2, nu, p4, sigma, p3)
+        + XresPhot2(mu, nu, alpha, beta, p1, p2, p3, p4, k) * XresPhot2(rho, sigma, gamma, lambda, p1, p2, p3, p4, k) * Tr3(3, mu, p1, rho, p3) * Tr4(4, nu, p4, sigma, p2)
         - XresPhot1(mu, nu, alpha, beta, p1, p2, p3, p4, q) * XresPhot2(rho, sigma, gamma, lambda, p1, p2, p3, p4, k) * Tr5(5, mu, p1, rho, p3, nu, p4, sigma, p2)
         - XresPhot2(mu, nu, alpha, beta, p1, p2, p3, p4, k) * XresPhot1(rho, sigma, gamma, lambda, p1, p2, p3, p4, q) * Tr6(6, mu, p1, rho, p2, nu, p4, sigma, p3);
                 
