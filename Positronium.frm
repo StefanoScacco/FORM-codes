@@ -36,9 +36,9 @@ id eps1.eps1 = 1;
 id eps2.eps2 = 1;
 
 * impose scalar products
-id p1.k1 = -E*E - E*p*costheta;
-id p1.k2 = -E*E + E*p*costheta;
-id k1.k2 = -2*E*E;
+*id p1.k1 = -E*E - E*p*costheta;
+*id p1.k2 = -E*E + E*p*costheta;
+*id k1.k2 = -2*E*E;
 
 print;
 .sort

@@ -1,24 +1,25 @@
-S me, s, t, u, e, csi;
+S me, mX, s, t, u, e, ge, Lambda, csi;
 * S defines scalar quantities
 
 V p1, p2, p3, p4, q, k, l;
 * V defines vectors
 
-T Phot, Tr1, Tr2, Tr3, Tr4, Tr5, Tr6;
+T XresPhot1, XresPhot2, Sumpol, Proj, Phot, Tr1, Tr2, Tr3, Tr4, Tr5, Tr6;
 * T defines tensors
 
-index mu, nu, rho, sigma;
+index mu, nu, alpha, beta, rho, sigma, gamma, lambda;
 * define some indices
 
 * The amplitude follows here. Also, the imaginary unit is i_
 * note: csi = infty is Lorentz gauge. csi = 1 is Feynman gauge. Result is csi independent!
 
-L Bhabha = e^4 * ( Phot(mu, nu, q) * Phot(rho, sigma, q) * Tr1(1, mu, p1, rho, p2) * Tr2(2, nu, p4, sigma, p3)
-                 + Phot(mu, nu, k) * Phot(rho, sigma, k) * Tr3(3, mu, p1, rho, p3) * Tr4(4, nu, p4, sigma, p2)
-                 - Phot(mu, nu, q) * Phot(rho, sigma, k) * Tr5(5, mu, p1, rho, p3, nu, p4, sigma, p2)
-                 - Phot(mu, nu, k) * Phot(rho, sigma, q) * Tr6(6, mu, p1, rho, p2, nu, p4, sigma, p3)  );
+L Bhabha =
+*      	   XresPhot1(mu, nu, alpha, beta, p1, p2, p3, p4, q) * XresPhot1(rho, sigma, gamma, lambda, p1, p2, p3, p4, q) * Tr1(1, mu, p1, rho, p2) * Tr2(2, nu, p4, sigma, p3)
+*        + XresPhot2(mu, nu, alpha, beta, p1, p2, p3, p4, k) * XresPhot2(rho, sigma, gamma, lambda, p1, p2, p3, p4, k) * Tr3(3, mu, p1, rho, p3) * Tr4(4, nu, p4, sigma, p2)
+        - XresPhot1(mu, nu, alpha, beta, p1, p2, p3, p4, q) * XresPhot2(rho, sigma, gamma, lambda, p1, p2, p3, p4, k) * Tr5(5, mu, p1, rho, p3, nu, p4, sigma, p2)
+        - XresPhot2(mu, nu, alpha, beta, p1, p2, p3, p4, k) * XresPhot1(rho, sigma, gamma, lambda, p1, p2, p3, p4, q) * Tr6(6, mu, p1, rho, p2, nu, p4, sigma, p3);
                 
-* define the tensors needed
+* define the traces needed
 id Tr1(1, mu?, p1?, rho?, p2?)   = g_(1, mu) * (-i_*g_(1, p1) + me*g_(1)) * g_(1, rho) * (-i_*g_(1, p2) - me*g_(1));
 id Tr2(2, nu?, p4?, sigma?, p3?) = g_(2, nu) * (-i_*g_(2, p4) - me*g_(2)) * g_(2, sigma) * (-i_*g_(2, p3) + me*g_(2));
 id Tr3(3, mu?, p1?, rho?, p3?)   = g_(3, mu) * (-i_*g_(3, p1) + me*g_(3)) * g_(3, rho) * (-i_*g_(3, p3) + me*g_(3));
@@ -30,7 +31,19 @@ id Tr6(6, mu?, p1?, rho?, p2?, nu?, p4?, sigma?, p3?) =
    	       	    	       	   g_(6, mu) * (-i_*g_(6, p1) + me*g_(6)) * g_(6, rho) * (-i_*g_(6, p2) - me*g_(6)) *
                                    g_(6, nu) * (-i_*g_(6, p4) - me*g_(6)) * g_(6, sigma) * (-i_*g_(6, p3) + me*g_(6));
 
+* sum of the QED contribution and spin 2 contribution: same diagram
+id XresPhot1(mu?, nu?, alpha?, beta?, p1?, p2?, p3?, p4?, q?) =
+   		  e^2*Phot(mu, nu, q) + ge^2/(4*Lambda^2)*Sumpol(mu, nu, alpha, beta, q)/(q.q + mX^2) * (p2(alpha) - p1(alpha)) * (p3(beta) - p4(beta));
+id XresPhot2(mu?, nu?, alpha?, beta?, p1?, p2?, p3?, p4?, q?) =
+                  e^2*Phot(mu, nu, q) + ge^2/(4*Lambda^2)*Sumpol(mu, nu, alpha, beta, q)/(q.q + mX^2) * (p3(alpha) + p1(alpha)) * (p2(beta) + p4(beta));
+
+*id e = 0;
+*id ge = 0;
+
+* define last tensors needed
 id Phot(mu?, nu?, q?) = 1/(q.q) * ( d_(mu, nu) + (1 - 1/csi)*q(mu)*q(nu)/(q.q));
+id Sumpol(mu?, nu?, alpha?, beta?, q?) = 1/2*Proj(mu, alpha, q)*Proj(nu, beta, q) + 1/2*Proj(mu, beta, q)*Proj(nu, alpha, q) - 1/3*Proj(mu, nu, q)*Proj(alpha, beta, q);
+id Proj(mu?, nu?, q?) = d_(mu, nu) + q(mu)*q(nu)/(mX*mX);
 
 * impose conservation of energy
 id q = p1 + p2;
@@ -68,7 +81,7 @@ id p1.p4 = -u/2 - me^2;
 id p2.p3 = -u/2	- me^2;
 *id me = 0;
 
-Bracket e, me;
+Bracket e, me, mX, ge, Lambda;
 
 print;
 .sort
