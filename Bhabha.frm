@@ -13,21 +13,22 @@ index mu, nu, rho, sigma;
 * The amplitude follows here. Also, the imaginary unit is i_
 * note: csi = infty is Lorentz gauge. csi = 1 is Feynman gauge. Result is csi independent!
 
-L Bhabha = e^4 * ( Phot(mu, nu, q) * Phot(rho, sigma, q) * Tr1(1, mu, p1, rho, p2) * Tr2(2, nu, p4, sigma, p3)
+L Bhabha = e^4 * (
+  	       	   Phot(mu, nu, q) * Phot(rho, sigma, q) * Tr1(1, mu, p1, rho, p2) * Tr2(2, nu, p4, sigma, p3)
                  + Phot(mu, nu, k) * Phot(rho, sigma, k) * Tr3(3, mu, p1, rho, p3) * Tr4(4, nu, p4, sigma, p2)
                  - Phot(mu, nu, q) * Phot(rho, sigma, k) * Tr5(5, mu, p1, rho, p3, nu, p4, sigma, p2)
                  - Phot(mu, nu, k) * Phot(rho, sigma, q) * Tr6(6, mu, p1, rho, p2, nu, p4, sigma, p3)  );
                 
 * define the tensors needed
-id Tr1(1, mu?, p1?, rho?, p2?)   = g_(1, mu) * (-i_*g_(1, p1) + me*g_(1)) * g_(1, rho) * (-i_*g_(1, p2) - me*g_(1));
+id Tr1(1, mu?, p1?, rho?, p2?)   = g_(1, mu) * (-i_*g_(1, p1) + me*g_(1)) * g_(1, rho)   * (-i_*g_(1, p2) - me*g_(1));
 id Tr2(2, nu?, p4?, sigma?, p3?) = g_(2, nu) * (-i_*g_(2, p4) - me*g_(2)) * g_(2, sigma) * (-i_*g_(2, p3) + me*g_(2));
-id Tr3(3, mu?, p1?, rho?, p3?)   = g_(3, mu) * (-i_*g_(3, p1) + me*g_(3)) * g_(3, rho) * (-i_*g_(3, p3) + me*g_(3));
+id Tr3(3, mu?, p1?, rho?, p3?)   = g_(3, mu) * (-i_*g_(3, p1) + me*g_(3)) * g_(3, rho)   * (-i_*g_(3, p3) + me*g_(3));
 id Tr4(4, nu?, p4?, sigma?, p2?) = g_(4, nu) * (-i_*g_(4, p4) - me*g_(4)) * g_(4, sigma) * (-i_*g_(4, p2) - me*g_(4));
 id Tr5(5, mu?, p1?, rho?, p3?, nu?, p4?, sigma?, p2?) =
-   	      	       	       	   g_(5, mu) * (-i_*g_(5, p1) + me*g_(5)) * g_(5, rho) * (-i_*g_(5, p3) + me*g_(5)) *
+   	      	       	       	   g_(5, mu) * (-i_*g_(5, p1) + me*g_(5)) * g_(5, rho)   * (-i_*g_(5, p3) + me*g_(5)) *
 				   g_(5, nu) * (-i_*g_(5, p4) - me*g_(5)) * g_(5, sigma) * (-i_*g_(5, p2) - me*g_(5));
 id Tr6(6, mu?, p1?, rho?, p2?, nu?, p4?, sigma?, p3?) =
-   	       	    	       	   g_(6, mu) * (-i_*g_(6, p1) + me*g_(6)) * g_(6, rho) * (-i_*g_(6, p2) - me*g_(6)) *
+   	       	    	       	   g_(6, mu) * (-i_*g_(6, p1) + me*g_(6)) * g_(6, rho)   * (-i_*g_(6, p2) - me*g_(6)) *
                                    g_(6, nu) * (-i_*g_(6, p4) - me*g_(6)) * g_(6, sigma) * (-i_*g_(6, p3) + me*g_(6));
 
 id Phot(mu?, nu?, q?) = 1/(q.q) * ( d_(mu, nu) + (1 - 1/csi)*q(mu)*q(nu)/(q.q));

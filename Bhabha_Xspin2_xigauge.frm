@@ -20,15 +20,15 @@ L Bhabha =
         - XresPhot2(mu, nu, alpha, beta, p1, p2, p3, p4, k) * XresPhot1(rho, sigma, gamma, lambda, p1, p2, p3, p4, q) * Tr6(6, mu, p1, rho, p2, nu, p4, sigma, p3);
                 
 * define the traces needed
-id Tr1(1, mu?, p1?, rho?, p2?)   = g_(1, mu) * (-i_*g_(1, p1) + me*g_(1)) * g_(1, rho) * (-i_*g_(1, p2) - me*g_(1));
+id Tr1(1, mu?, p1?, rho?, p2?)   = g_(1, mu) * (-i_*g_(1, p1) + me*g_(1)) * g_(1, rho)   * (-i_*g_(1, p2) - me*g_(1));
 id Tr2(2, nu?, p4?, sigma?, p3?) = g_(2, nu) * (-i_*g_(2, p4) - me*g_(2)) * g_(2, sigma) * (-i_*g_(2, p3) + me*g_(2));
-id Tr3(3, mu?, p1?, rho?, p3?)   = g_(3, mu) * (-i_*g_(3, p1) + me*g_(3)) * g_(3, rho) * (-i_*g_(3, p3) + me*g_(3));
+id Tr3(3, mu?, p1?, rho?, p3?)   = g_(3, mu) * (-i_*g_(3, p1) + me*g_(3)) * g_(3, rho)   * (-i_*g_(3, p3) + me*g_(3));
 id Tr4(4, nu?, p4?, sigma?, p2?) = g_(4, nu) * (-i_*g_(4, p4) - me*g_(4)) * g_(4, sigma) * (-i_*g_(4, p2) - me*g_(4));
 id Tr5(5, mu?, p1?, rho?, p3?, nu?, p4?, sigma?, p2?) =
-   	      	       	       	   g_(5, mu) * (-i_*g_(5, p1) + me*g_(5)) * g_(5, rho) * (-i_*g_(5, p3) + me*g_(5)) *
+   	      	       	       	   g_(5, mu) * (-i_*g_(5, p1) + me*g_(5)) * g_(5, rho)   * (-i_*g_(5, p3) + me*g_(5)) *
 				   g_(5, nu) * (-i_*g_(5, p4) - me*g_(5)) * g_(5, sigma) * (-i_*g_(5, p2) - me*g_(5));
 id Tr6(6, mu?, p1?, rho?, p2?, nu?, p4?, sigma?, p3?) =
-   	       	    	       	   g_(6, mu) * (-i_*g_(6, p1) + me*g_(6)) * g_(6, rho) * (-i_*g_(6, p2) - me*g_(6)) *
+   	       	    	       	   g_(6, mu) * (-i_*g_(6, p1) + me*g_(6)) * g_(6, rho)   * (-i_*g_(6, p2) - me*g_(6)) *
                                    g_(6, nu) * (-i_*g_(6, p4) - me*g_(6)) * g_(6, sigma) * (-i_*g_(6, p3) + me*g_(6));
 
 * sum of the QED contribution and spin 2 contribution: same diagram
