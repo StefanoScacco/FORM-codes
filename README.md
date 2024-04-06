@@ -7,7 +7,7 @@ form <filename.frm>
 
 
 Here is the complete list of codes found in the repository:
- - README.md: instructions for execution of codes in FORM. Meta warning: you are reading this code right now!.
+ - README.md: instructions for execution of codes in FORM. Meta warning: you are reading this file right now!.
  
  - spin2Decayee.frm: this code calculates the amplitude for the decay process X to e+ e-, where X is a spin 2 massive boson with mass mX, and the Feynman rule is found in my thesis.
  
