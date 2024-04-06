@@ -29,10 +29,6 @@ Here is the complete list of codes found in the repository:
  
  - Positronium_Xspin2_xigauge.frm: this code calculates the modulus squared of the total tree level amplitude for the Compton scattering (all three diagrams included). Calculations were carried out in xi gauge. To speed up the software, it is recommended to substitute 1\xi = 0 (Lorentz gauge).
  
- - Bhabha_Xspin2_xigauge.frm: this code calculates the modulus squared of the total tree level amplitude for the Bhabha scattering (all four diagrams included). Calculations were carried out in xi gauge. The gauge only enters the QED part.
+ - Bhabha_Xspin2_xigauge.frm: this code calculates the modulus squared of the total tree level amplitude for the Bhabha scattering (all four diagrams included). Calculations were carried out in xi gauge. The gauge only enters the QED part. It is highly suggested to impose ge^4 = 0 in the code, to get rid of the computation heavy part, and speed the code up to just a couple of seconds. Also, it is suggested to study s-channel, t-channel and interference separately. 
 
-It is highly suggested to impose ge^4 = 0 in the code, to get rid of the computation heavy part, and speed the code up to just a couple of seconds. Also, it is suggested to study s-channel, t-channel and interference separately. 
-
- - Moller_Xspin2_xigauge.frm: this code calculates the modulus squared of the total tree level amplitude for the Moller scattering (all four diagrams included). Calculations were carried out in xi gauge. The gauge only enters the QED part. 
-
-It is highly suggested to impose ge^4 = 0 in the code, to get rid of the computation heavy part, and speed the code up to just a couple of seconds. Also, it is suggested to study t-channel, u-channel and interference separately.
+ - Moller_Xspin2_xigauge.frm: this code calculates the modulus squared of the total tree level amplitude for the Moller scattering (all four diagrams included). Calculations were carried out in xi gauge. The gauge only enters the QED part. It is highly suggested to impose ge^4 = 0 in the code, to get rid of the computation heavy part, and speed the code up to just a couple of seconds. Also, it is suggested to study t-channel, u-channel and interference separately.
