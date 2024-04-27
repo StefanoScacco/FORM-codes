@@ -9,7 +9,7 @@ T Sumpol, Proj;
 
 index mu, nu, rho, sigma;
 
-L Decay = Sumpol(mu, nu, rho, sigma) * ((pminus(mu) - pplus(mu)) * (pplus(rho) - pminus(rho))) *
+L Decay = Sumpol(mu, nu, rho, sigma) * ((pplus(mu) - pminus(mu)) * (pplus(rho) - pminus(rho))) *
 	  (g_(1, nu) * ( -i_*g_(1, pplus) - m*g_(1)) * g_(1, sigma) * ( -i_*g_(1, pminus) + m*g_(1))); 
 
 * who are the tensors added?
