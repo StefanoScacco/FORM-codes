@@ -4,17 +4,17 @@ S m, mX;
 V pplus, pminus, pX;
 * V defines vectors
 
+T Sumpol, Proj;
+* T defines tensors
+
 index mu, nu, rho, sigma;
 
-L Decay = ( 1/2 * ( (d_(mu, rho) + pX(mu)*pX(rho)/(mX*mX) ) * (d_(nu, sigma) + pX(nu)*pX(sigma)/(mX*mX)) +
-  	  (d_(nu, rho) + pX(nu)*pX(rho)/(mX*mX)) * (d_(mu, sigma) + pX(mu)*pX(sigma)/(mX*mX)) ) -
-          1/3 * (d_(mu, nu) + pX(mu)*pX(nu)/(mX*mX)) * (d_(rho, sigma) + pX(rho)*pX(sigma)/(mX*mX)) ) *
-	  ((pminus(mu) - pplus(mu)) * (pplus(rho) - pminus(rho))) *
-	  (g_(1, nu) *
-       	  ( -i_*g_(1, pplus) - m*g_(1)) *
-       	  g_(1, sigma) *
-	  ( -i_*g_(1, pminus) + m*g_(1))); 
+L Decay = Sumpol(mu, nu, rho, sigma) * ((pminus(mu) - pplus(mu)) * (pplus(rho) - pminus(rho))) *
+	  (g_(1, nu) * ( -i_*g_(1, pplus) - m*g_(1)) * g_(1, sigma) * ( -i_*g_(1, pminus) + m*g_(1))); 
 
+* who are the tensors added?
+id Sumpol(mu?, nu?, rho?, sigma?) = 1/2*Proj(mu, rho)*Proj(nu, sigma) + 1/2*Proj(mu, sigma)*Proj(nu, rho) - 1/3*Proj(mu, nu)*Proj(rho, sigma);
+id Proj(mu?, nu?) = d_(mu, nu) + pX(mu)*pX(nu)/(mX*mX);
 
 * Do the substitution and compute the trace
 id pX = pplus + pminus;

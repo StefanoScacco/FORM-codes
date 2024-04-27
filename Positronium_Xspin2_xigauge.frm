@@ -88,6 +88,7 @@ id k1.eps2 = 0;
 id k2.eps1 = 0;
 id eps1.eps1 = 1;
 id eps2.eps2 = 1;
+*id ge = gg;
 
 * impose scalar products
 id p1.k1 = -E*E - E*p*costheta;
