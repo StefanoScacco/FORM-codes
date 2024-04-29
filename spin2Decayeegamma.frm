@@ -35,15 +35,6 @@ id pminus.pminus = -m^2;
 id pX.pX = -mX^2;
 id k.k = 0;
 
-* insert non trivial scalar products
-id pplus.pX = -mX^2*y^2;
-id pminus.pX = -mX^2*x^2;
-id pplus.pminus = mX^2/2*(-3 + 2*x + 2*y);
-id pplus.e = mX^2*x*y*pminus.e^-1 * (c12 - (x + y*c12)*(y + x*c12)/(z^2));
-id c12 = (1 - 2*(x+y) + 2*x*y)/(2*x*y);
-id z = 1 - x - y;
-id m = 0;
-
 Bracket z, mX;
 
 print;
