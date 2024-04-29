@@ -1,4 +1,4 @@
-This is a list of codes that allow for modulus squared calculations for decays X to e+e- and 2 photons, Compton scattering, electron positron annihilation into two photons, Bhabha scattering and Moller scattering, mediated by a massive spin 2 boson, which we identify with the X resonance at 17 MeV found by the ATOMKI and JINR collaborations independently. Fermion polarizations have been summed. Spin 2 polarizations have been summed. Photon polarizations have not been summed.
+This is a list of codes that allow for modulus squared calculations for decays X to e+e-, e+e- + photon, 2 photons, Compton scattering, electron positron annihilation into two photons, Bhabha scattering and Moller scattering, mediated by a massive spin 2 boson, which we identify with the X resonance at 17 MeV found by the ATOMKI and JINR collaborations independently. Fermion polarizations have been summed. Spin 2 polarizations have been summed. Photon polarizations have not been summed.
 
 To execute code, install FORM on your device, and simply type at command line (it might take a couple of seconds):
 
@@ -11,7 +11,7 @@ Here is the complete list of codes found in the repository:
  
  - spin2Decayee.frm: this code calculates the amplitude for the decay process X to e+ e-, where X is a spin 2 massive boson with mass mX, and the Feynman rule is found in my thesis.
 
-- spin2Decayeegamma.frm: this code calculates the amplitude for the decay process X to e+ e- gamma, where X is a spin 2 massive boson with mass mX, and the Feynman rule is found in my thesis.
+- spin2Decayeegamma.frm: this code calculates the amplitude for the decay process X to e+ e- photon, where X is a spin 2 massive boson with mass mX, and the Feynman rule is found in my thesis.
  
  - spin2Decaygg_xigauge.frm: this code calculates the amplitude for the decay process X to 2 photons, where X is a spin 2 massive boson with mass mX, and the Feynman rule is calculated in a generic xi gauge, in my thesis.
  
