@@ -1,4 +1,4 @@
-S  me, mX, e, w, wpr, csi;
+S  me, mX, e, w, wpr, xi;
 * S defines scalar quantities
 
 V q, p, ppr, k, kpr, eps, epspr;
@@ -15,7 +15,7 @@ index alpha, beta, gamma, delta, rho, sigma, mu, nu, zeta, tau, theta, lambda;
 * I want to study this amplitude better. I removed propagator denominator and constants in front.
 
 * note 1: you can check Ward Identities by substituting k to eps or kpr to epspr, but CANCELLING p.eps = 0 and p.epspr = 0
-* note 2: csi = infty is Lorentz gauge. csi = 1 is Feynman gauge. Result is csi independent!
+* note 2: xi = infty is Lorentz gauge. xi = 1 is Feynman gauge. Result is xi independent!
 
 L Comp = eps(alpha) * epspr(beta) * g_(1, rho) * (ppr(sigma) + p(sigma)) *
        	 Sumpol(mu, nu, rho, sigma) * FeynXgg(mu, nu, alpha, beta, k, kpr) *
@@ -51,7 +51,7 @@ id FeynXgg(mu?, nu?, rho?, sigma?, k?, kpr?) =
           + d_(nu, rho)*kpr(mu)*k(sigma)
           - k.kpr*(d_(mu, sigma)*d_(nu, rho) + d_(nu, sigma)*d_(mu, rho))
 
-          + 1/csi*(
+          + 1/xi*(
           - d_(mu, rho)*kpr(nu)*kpr(sigma)
           - d_(mu, sigma)*k(nu)*k(rho)
           - d_(nu, sigma)*k(mu)*k(rho)
@@ -61,7 +61,7 @@ id ppr = p + k - kpr;
 id q = k - kpr;
 
 * select your favorite gauge
-*id 1/csi = 0;
+*id 1/xi = 0;
 
 trace4, 1;
 print;

@@ -1,4 +1,4 @@
-S me, mX, e, ge, gg, Lambda, w, wpr, csi;
+S me, mX, e, ge, gg, Lambda, w, wpr, xi;
 * S defines scalar quantities
 
 V q, p, ppr, k, kpr, eps, epspr;
@@ -14,7 +14,7 @@ index alpha, beta, gamma, delta, rho, sigma, mu, nu, zeta, tau, theta, lambda;
 * The Feynman rule tensor has been defined FeynXgg(mu, nu, rho, sigma, k, kpr)
 
 * note 1: you can check Ward Identities by substituting k to eps or kpr to epspr, but CANCELLING p.eps = 0 and p.epspr = 0
-* note 2: csi = infty is Lorentz gauge. csi = 1 is Feynman gauge. Result is csi independent!
+* note 2: xi = infty is Lorentz gauge. xi = 1 is Feynman gauge. Result is xi independent!
 
 L Comp = (-e^2*((g_(1, epspr)*(-i_*(g_(1, p) + g_(1, k)) + me*g_(1))*g_(1, eps))/(2*p.k) +
          (g_(1, eps)*(-i_*(g_(1, p) - g_(1, kpr)) + me*g_(1))*g_(1, epspr))/(-2*p.kpr)) +
@@ -57,7 +57,7 @@ id FeynXgg(mu?, nu?, rho?, sigma?, k?, kpr?) =
           + d_(nu, rho)*kpr(mu)*k(sigma)
           - k.kpr*(d_(mu, sigma)*d_(nu, rho) + d_(nu, sigma)*d_(mu, rho))
 
-          + 1/csi*(
+          + 1/xi*(
           - d_(mu, rho)*kpr(nu)*kpr(sigma)
           - d_(mu, sigma)*k(nu)*k(rho)
           - d_(nu, sigma)*k(mu)*k(rho)
@@ -67,7 +67,7 @@ id ppr = p + k - kpr;
 id q = k - kpr;
 
 * select your favorite gauge
-id 1/csi = 0;
+id 1/xi = 0;
 
 trace4, 1;
 print;

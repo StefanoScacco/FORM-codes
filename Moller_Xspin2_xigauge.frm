@@ -1,4 +1,4 @@
-S me, mX, s, t, u, e, ge, Lambda, csi;
+S me, mX, s, t, u, e, ge, Lambda, xi;
 * S defines scalar quantities
 
 V p1, p2, p3, p4, q, k, l;
@@ -11,7 +11,7 @@ index mu, nu, alpha, beta, rho, sigma, gamma, lambda;
 * define some indices
 
 * The amplitude follows here. Also, the imaginary unit is i_
-* note: csi = infty is Lorentz gauge. csi = 1 is Feynman gauge. Result is csi independent!
+* note: xi = infty is Lorentz gauge. xi = 1 is Feynman gauge. Result is xi independent!
 
 L Moller =
           XresPhot1(mu, nu, alpha, beta, p1, p2, p3, p4, q) * XresPhot1(rho, sigma, gamma, lambda, p1, p2, p3, p4, q) * Tr1(1, mu, p2, rho, p4) * Tr2(2, nu, p1, sigma, p3)
@@ -43,7 +43,7 @@ id ge^4 = 0;
 *id ge = 0;
 
 * define last tensors needed
-id Phot(mu?, nu?, q?) = 1/(q.q) * ( d_(mu, nu) + (1 - 1/csi)*q(mu)*q(nu)/(q.q));
+id Phot(mu?, nu?, q?) = 1/(q.q) * ( d_(mu, nu) + (1 - 1/xi)*q(mu)*q(nu)/(q.q));
 id Sumpol(mu?, nu?, alpha?, beta?, q?) = 1/2*Proj(mu, alpha, q)*Proj(nu, beta, q) + 1/2*Proj(mu, beta, q)*Proj(nu, alpha, q) - 1/3*Proj(mu, nu, q)*Proj(alpha, beta, q);
 id Proj(mu?, nu?, q?) = d_(mu, nu) + q(mu)*q(nu)/(mX*mX);
 
@@ -54,7 +54,7 @@ id l = p1 + p2;
 id p4 = p1 + p2 - p3;
 
 * select your favorite gauge
-*id 1/csi = 0;
+*id 1/xi = 0;
 
 * calculate all the needed traces
 trace4, 1;

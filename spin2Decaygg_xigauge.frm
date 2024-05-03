@@ -1,4 +1,4 @@
-S mX, csi;
+S mX, xi;
 * S defines scalar quantities
 
 V k1, k2, e1, e2, pX;
@@ -26,7 +26,7 @@ id FeynXgg(mu?, nu?, rho?, sigma?, k1?, k2?) =
           - d_(nu, rho)*k2(mu)*k1(sigma)
           + k1.k2*(d_(mu, sigma)*d_(nu, rho) + d_(nu, sigma)*d_(mu, rho))
 
-	  + 1/csi*(
+	  + 1/xi*(
 	  - d_(mu, rho)*k2(nu)*k2(sigma)
           - d_(mu, sigma)*k1(nu)*k1(rho)
           - d_(nu, sigma)*k1(mu)*k1(rho)

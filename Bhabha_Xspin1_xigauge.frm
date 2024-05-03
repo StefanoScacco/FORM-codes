@@ -1,4 +1,4 @@
-S me, mX, s, t, u, e, ge, csi;
+S me, mX, s, t, u, e, ge, xi;
 * S defines scalar quantities
 
 V p1, p2, p3, p4, q, k, l;
@@ -11,7 +11,7 @@ index mu, nu, rho, sigma;
 * define some indices
 
 * The amplitude follows here. Also, the imaginary unit is i_
-* note: csi = infty is Lorentz gauge. csi = 1 is Feynman gauge. Result is csi independent!
+* note: xi = infty is Lorentz gauge. xi = 1 is Feynman gauge. Result is xi independent!
 
 L Bhabha =
   	   Phot(mu, nu, q) * Phot(rho, sigma, q) * Tr1(1, mu, p1, rho, p2) * Tr2(2, nu, p4, sigma, p3)
@@ -32,7 +32,7 @@ id Tr6(6, mu?, p1?, rho?, p2?, nu?, p4?, sigma?, p3?) =
                                    g_(6, nu) * (-i_*g_(6, p4) - me*g_(6)) * g_(6, sigma) * (-i_*g_(6, p3) + me*g_(6));
 
 * propagator includes spin 1 as well, with two different constants (it's a sum of the photon and X contributions)
-id Phot(mu?, nu?, q?) = e*e/(q.q) * ( d_(mu, nu) + (1 - 1/csi)*q(mu)*q(nu)/(q.q)) + ge*ge/(q.q + mX*mX) * (d_(mu, nu) + q(mu)*q(nu)/(mX*mX));
+id Phot(mu?, nu?, q?) = e*e/(q.q) * ( d_(mu, nu) + (1 - 1/xi)*q(mu)*q(nu)/(q.q)) + ge*ge/(q.q + mX*mX) * (d_(mu, nu) + q(mu)*q(nu)/(mX*mX));
 
 *id ge^4 = 0;
 *id ge = 0;
@@ -45,7 +45,7 @@ id l = p1 - p4;
 id p4 = p1 + p2 - p3;
 
 * select your favorite gauge
-*id 1/csi = 0;
+*id 1/xi = 0;
 
 * calculate all the needed traces
 trace4, 1;
