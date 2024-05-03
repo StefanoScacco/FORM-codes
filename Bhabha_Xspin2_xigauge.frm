@@ -83,6 +83,11 @@ id p1.p4 = -u/2 - me^2;
 id p2.p3 = -u/2	- me^2;
 *id me = 0;
 
+* to simplify you may use these constraints
+*id t = - s - u - 4*me^2;
+*id u = - s - t - 4*me^2;
+*id s = - t - u - 4*me^2;
+
 Bracket e, me, mX, ge, Lambda;
 
 print;
