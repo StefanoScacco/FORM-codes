@@ -23,12 +23,14 @@ Here is the complete list of codes found in the repository:
  
  - Moller.frm: this code calculates the traces for the Moller scattering, only using QED diagrams. To better comprehend the result, we suggest studying every squared term individually (t-channel, u-channel and interference).
 
-- Twophoton.frm: this code calculates the QED loop trace for the two-photon scattering process. It does not perform the integration in loop momentum, and it is used only to verify that QED amplitude is gauge invariant and finite.
+ - Twophoton.frm: this code calculates the QED loop trace for the two-photon scattering process. It does not perform the integration in loop momentum, and it is used only to verify that QED amplitude is gauge invariant and finite.
 
-- Compton_onlyX_xigauge.frm: this code calculates a simplified version of the modulus squared of the spin 2 massive boson mediated process in Compton scattering only. Since there are no interference terms between QED diagrams and the spin 2 diagram, the latter can be analyzed singularly. Calculations were carried out in xi gauge. To speed up the software, it is recommended to substitute 1\xi = 0 (Lorentz gauge).
+ - Compton_onlyX_xigauge.frm: this code calculates a simplified version of the modulus squared of the spin 2 massive boson mediated process in Compton scattering only. Since there are no interference terms between QED diagrams and the spin 2 diagram, the latter can be analyzed singularly. Calculations were carried out in xi gauge. To speed up the software, it is recommended to substitute 1\xi = 0 (Lorentz gauge).
  
  - Annihilation_onlyX_xigauge.frm: this code calculates a simplified version of the modulus squared of the spin 2 massive boson mediated process in e+ e- annihilation only. Since there are no interference terms between QED diagrams and the spin 2 diagram, the latter can be analyzed singularly. Calculations were carried out in xi gauge. To speed up the software, it is recommended to substitute 1\xi = 0 (Lorentz gauge).
- 
+
+ - Twophoton_onlyX_xigauge.frm:	this code calculates the total tree level amplitude (not squared) for two-photon scattering, without mediation of QED. Result requires a selection of photon elicities (remember that final state is barred), and results are polarization dependent. Calculations were carried out in xi gauge, and result is immediate.
+
  - Compton_Xspin2_xigauge.frm: this code calculates the modulus squared of the total tree level amplitude for the Compton scattering, corrected by spin 2 massive boson mediation (all three diagrams included). Calculations were carried out in xi gauge. To speed up the software, it is recommended to substitute 1\xi = 0 (Lorentz gauge).
  
  - Annihilation_Xspin2_xigauge.frm: this code calculates the modulus squared of the total tree level amplitude for the annihilation into two photons, corrected by spin 2 massive boson mediation (all three diagrams included). Calculations were carried out in xi gauge. To speed up the software, it is recommended to substitute 1\xi = 0 (Lorentz gauge).
