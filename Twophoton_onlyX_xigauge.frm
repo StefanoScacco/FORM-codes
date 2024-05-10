@@ -32,6 +32,16 @@ L Mppmm = -(gg/Lambda)^2 * ep1(mu) * ep2(nu) * ep3(rho) * ep4(sigma) *
          + FeynXgg(alpha, beta, mu, rho, m1, k3)   * Sumpol(alpha, beta, gamma, delta, k)/T * FeynXgg(gamma, delta, nu, sigma, m2, k4)
          + FeynXgg(alpha, beta, mu, sigma, m1, k4) * Sumpol(alpha, beta, gamma, delta, l)/U * FeynXgg(gamma, delta, nu, rho, m2, k3));
 
+L Mpmpm = -(gg/Lambda)^2 * ep1(mu) * em2(nu) * em3(rho) * ep4(sigma) *
+         ( FeynXgg(alpha, beta, mu, nu, m1, m2)    * Sumpol(alpha, beta, gamma, delta, q)/S * FeynXgg(gamma, delta, rho, sigma, k3, k4)
+         + FeynXgg(alpha, beta, mu, rho, m1, k3)   * Sumpol(alpha, beta, gamma, delta, k)/T * FeynXgg(gamma, delta, nu, sigma, m2, k4)
+         + FeynXgg(alpha, beta, mu, sigma, m1, k4) * Sumpol(alpha, beta, gamma, delta, l)/U * FeynXgg(gamma, delta, nu, rho, m2, k3));
+
+L Mpmmp = -(gg/Lambda)^2 * ep1(mu) * em2(nu) * ep3(rho) * em4(sigma) *
+         ( FeynXgg(alpha, beta, mu, nu, m1, m2)    * Sumpol(alpha, beta, gamma, delta, q)/S * FeynXgg(gamma, delta, rho, sigma, k3, k4)
+         + FeynXgg(alpha, beta, mu, rho, m1, k3)   * Sumpol(alpha, beta, gamma, delta, k)/T * FeynXgg(gamma, delta, nu, sigma, m2, k4)
+         + FeynXgg(alpha, beta, mu, sigma, m1, k4) * Sumpol(alpha, beta, gamma, delta, l)/U * FeynXgg(gamma, delta, nu, rho, m2, k3));
+
 * substitute Feynman rule
 id FeynXgg(mu?, nu?, rho?, sigma?, ki?, kj?) =
           - d_(rho, sigma)*(ki(mu)*kj(nu) + ki(nu)*kj(mu))
