@@ -17,27 +17,27 @@ index alpha, beta, gamma, delta, mu, nu, rho, sigma;
 * note 2: xi = infty is Lorentz gauge. xi = 1 is Feynman gauge. Result is xi independent!
 * note 3: because photon polarizations e3 and e4 get barred, ep3_bar = em3 and ep4_bar = em4 and viceversa. So, Mpppp needs ep1, ep2, em3, em4 (invert helicities of 3, 4)
 
-L Mpppp = -(gg/Lambda)^2 * ep1(mu) * ep2(nu) * em3(rho) * em4(sigma) *
+L Mpppp = (gg/Lambda)^2 * ep1(mu) * ep2(nu) * em3(rho) * em4(sigma) *
          ( FeynXgg(alpha, beta, mu, nu, m1, m2)    * Sumpol(alpha, beta, gamma, delta, q)/S * FeynXgg(gamma, delta, rho, sigma, k3, k4)
          + FeynXgg(alpha, beta, mu, rho, m1, k3)   * Sumpol(alpha, beta, gamma, delta, k)/T * FeynXgg(gamma, delta, nu, sigma, m2, k4)
          + FeynXgg(alpha, beta, mu, sigma, m1, k4) * Sumpol(alpha, beta, gamma, delta, l)/U * FeynXgg(gamma, delta, nu, rho, m2, k3));
 	 
-L Mpppm = -(gg/Lambda)^2 * ep1(mu) * ep2(nu) * em3(rho) * ep4(sigma) *
+L Mpppm = (gg/Lambda)^2 * ep1(mu) * ep2(nu) * em3(rho) * ep4(sigma) *
          ( FeynXgg(alpha, beta, mu, nu, m1, m2)    * Sumpol(alpha, beta, gamma, delta, q)/S * FeynXgg(gamma, delta, rho, sigma, k3, k4)
          + FeynXgg(alpha, beta, mu, rho, m1, k3)   * Sumpol(alpha, beta, gamma, delta, k)/T * FeynXgg(gamma, delta, nu, sigma, m2, k4)
          + FeynXgg(alpha, beta, mu, sigma, m1, k4) * Sumpol(alpha, beta, gamma, delta, l)/U * FeynXgg(gamma, delta, nu, rho, m2, k3));
 
-L Mppmm = -(gg/Lambda)^2 * ep1(mu) * ep2(nu) * ep3(rho) * ep4(sigma) *
+L Mppmm = (gg/Lambda)^2 * ep1(mu) * ep2(nu) * ep3(rho) * ep4(sigma) *
          ( FeynXgg(alpha, beta, mu, nu, m1, m2)    * Sumpol(alpha, beta, gamma, delta, q)/S * FeynXgg(gamma, delta, rho, sigma, k3, k4)
          + FeynXgg(alpha, beta, mu, rho, m1, k3)   * Sumpol(alpha, beta, gamma, delta, k)/T * FeynXgg(gamma, delta, nu, sigma, m2, k4)
          + FeynXgg(alpha, beta, mu, sigma, m1, k4) * Sumpol(alpha, beta, gamma, delta, l)/U * FeynXgg(gamma, delta, nu, rho, m2, k3));
 
-L Mpmpm = -(gg/Lambda)^2 * ep1(mu) * em2(nu) * em3(rho) * ep4(sigma) *
+L Mpmpm = (gg/Lambda)^2 * ep1(mu) * em2(nu) * em3(rho) * ep4(sigma) *
          ( FeynXgg(alpha, beta, mu, nu, m1, m2)    * Sumpol(alpha, beta, gamma, delta, q)/S * FeynXgg(gamma, delta, rho, sigma, k3, k4)
          + FeynXgg(alpha, beta, mu, rho, m1, k3)   * Sumpol(alpha, beta, gamma, delta, k)/T * FeynXgg(gamma, delta, nu, sigma, m2, k4)
          + FeynXgg(alpha, beta, mu, sigma, m1, k4) * Sumpol(alpha, beta, gamma, delta, l)/U * FeynXgg(gamma, delta, nu, rho, m2, k3));
 
-L Mpmmp = -(gg/Lambda)^2 * ep1(mu) * em2(nu) * ep3(rho) * em4(sigma) *
+L Mpmmp = (gg/Lambda)^2 * ep1(mu) * em2(nu) * ep3(rho) * em4(sigma) *
          ( FeynXgg(alpha, beta, mu, nu, m1, m2)    * Sumpol(alpha, beta, gamma, delta, q)/S * FeynXgg(gamma, delta, rho, sigma, k3, k4)
          + FeynXgg(alpha, beta, mu, rho, m1, k3)   * Sumpol(alpha, beta, gamma, delta, k)/T * FeynXgg(gamma, delta, nu, sigma, m2, k4)
          + FeynXgg(alpha, beta, mu, sigma, m1, k4) * Sumpol(alpha, beta, gamma, delta, l)/U * FeynXgg(gamma, delta, nu, rho, m2, k3));
@@ -173,8 +173,10 @@ id em3.ep4 = -1;
 id em3.em4 = 0;
 
 * useful simplificating constraints
-*id u = - s - t;
-*id s = - t - u;
+id u = - s - t;
+id s = - t - u;
+*id t = - s - u;
+
 
 Bracket gg, Lambda, mX, R, S, T, U;
 
