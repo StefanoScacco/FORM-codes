@@ -40,3 +40,5 @@ Here is the complete list of codes found in the repository:
  - Moller_Xspin2_xigauge.frm: this code calculates the modulus squared of the total tree level amplitude for the Moller scattering, corrected by spin 2 massive boson mediation (all four diagrams included). Calculations were carried out in xi gauge. The gauge only enters the QED part. It is highly suggested to impose ge^4 = 0 in the code, to get rid of the computation heavy part, and speed the code up to just a couple of seconds. Also, it is suggested to study t-channel, u-channel and interference separately.
 
  - Bhabha_Xspin1_xigauge.frm: this code calculates the modulus squared of the total tree level amplitude for the Bhabha scattering, corrected by spin 1 massive boson mediation (all four diagrams included). Calculations were carried out in xi gauge. The gauge only enters the QED part. It is suggested to study s-channel, t-channel and interference separately.
+
+ - unitar_gggg.frm: this code simply substitutes t, u Mandelstam variables in terms of s and costheta = x as scattering angle, to be able to perform integration in x and obtain partial wave component for unitarity constraint.  
