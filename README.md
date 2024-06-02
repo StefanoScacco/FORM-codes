@@ -1,4 +1,4 @@
-This is a list of codes that allow for modulus squared calculations for decays X to e+e-, e+e- + photon, 2 photons, Compton scattering, electron positron annihilation into two photons, Bhabha scattering and Moller scattering, mediated by a massive spin 2 boson, which we identify with the X resonance at 17 MeV found by the ATOMKI and JINR collaborations independently. Fermion polarizations have been summed. Spin 2 polarizations have been summed. Photon polarizations have not been summed.
+This is a list of codes that allow for modulus squared calculations for decays X to e+e-, e+e- + photon, 2 photons, Compton scattering, electron positron annihilation into two photons, Bhabha scattering, Moller scattering and two-photon scattering, mediated by a massive spin 2 boson, which we identify with the X resonance at 17 MeV found by the ATOMKI and JINR collaborations independently. Fermion polarizations have been summed. Spin 2 polarizations have been summed. Photon polarizations have not been summed.
 
 To execute code, install FORM on your device, and simply type at command line (it might take a couple of seconds):
 
