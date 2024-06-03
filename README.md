@@ -41,4 +41,6 @@ Here is the complete list of codes found in the repository:
 
  - Bhabha_Xspin1_xigauge.frm: this code calculates the modulus squared of the total tree level amplitude for the Bhabha scattering, corrected by spin 1 massive boson mediation (all four diagrams included). Calculations were carried out in xi gauge. The gauge only enters the QED part. It is suggested to study s-channel, t-channel and interference separately.
 
+ - ee_into_Xg.frm: this code calculates squared amplitude of the process electron positron into X and photon, X being spin 2 particle, in the massless fermion limit. Result of the code is gauge independent (2 gauge parameters are there: xi1 and xi2), and it also satisfies Ward identities. It is suggested to substitute Mandelstam variables alternatively to quickly compare result with literature, and to multiply amplitude by 6*mX^4*s*t*u.
+
  - unitar_gggg.frm: this code simply substitutes t, u Mandelstam variables in terms of s and costheta = x as scattering angle, to be able to perform integration in x and obtain partial wave component for unitarity constraint.  
