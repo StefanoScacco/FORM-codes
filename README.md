@@ -43,4 +43,6 @@ Here is the complete list of codes found in the repository:
 
  - ee_into_Xg.frm: this code calculates squared amplitude of the process electron positron into X and photon, X being spin 2 particle, in the massless fermion limit. Result of the code is gauge independent (2 gauge parameters are there: xi1 and xi2), and it also satisfies Ward identities. It is suggested to substitute Mandelstam variables alternatively to quickly compare result with literature, and to multiply amplitude by 6*mX^4*s*t*u.
 
+ - manip_eeXg.frm: this code manipulates result from ee_into_Xg.frm code, and simply presents it in a nicer way. f1, f2, f3 are functions used in the initial result, and f3, f4, f5 are used in the final result.
+
  - unitar_gggg.frm: this code simply substitutes t, u Mandelstam variables in terms of s and costheta = x as scattering angle, to be able to perform integration in x and obtain partial wave component for unitarity constraint.  
