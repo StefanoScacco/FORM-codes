@@ -16,7 +16,7 @@ index mu, nu, zeta, tau, rho, sigma, alpha, beta, gamma, theta;
 * note 1: you can check Ward Identities by substituting p2 to eps, but CANCELLING p2.eps = 0
 * note 2: xi = infty is Lorentz gauge. xi = 1 is Feynman gauge. Result is xi independent!
 
-L eeXg = 6*mX^4*s*t*u*e^2/(4*Lambda^2) * Sumpol(mu, nu, zeta, tau) * d_(rho, beta) *
+L eeXg = e^2/(4*Lambda^2) * Sumpol(mu, nu, zeta, tau) * d_(rho, beta) *
 
        ( - i_* ge * g_(1, mu) * d_(rho, nu)
          - i_* gg * FeynXgg(mu, nu, rho, sigma, pgg1, pgg2) * Phot(sigma, alpha, pgg2) * g_(1, alpha)
