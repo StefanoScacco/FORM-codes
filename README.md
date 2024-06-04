@@ -11,7 +11,7 @@ Here is the complete list of codes found in the repository:
  
  - spin2Decayee.frm: this code calculates the amplitude for the decay process X to e+ e-, where X is a spin 2 massive boson with mass mX, and the Feynman rule is found in my thesis.
 
-- spin2Decayeegamma.frm: this code calculates the amplitude for the decay process X to e+ e- photon, where X is a spin 2 massive boson with mass mX, and the Feynman rule is found in my thesis.
+ - spin2Decayeegamma_4vertex.frm: this code calculates the amplitude for the decay process X to e+ e- photon, only using the 4-vertex interaction (incomplete), where X is a spin 2 massive boson with mass mX, and the Feynman rule is found in my thesis.
  
  - spin2Decaygg_xigauge.frm: this code calculates the amplitude for the decay process X to 2 photons, where X is a spin 2 massive boson with mass mX, and the Feynman rule is calculated in a generic xi gauge, in my thesis.
  
