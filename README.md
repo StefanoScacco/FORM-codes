@@ -45,4 +45,6 @@ Here is the complete list of codes found in the repository:
 
  - manip_eeXg.frm: this code manipulates result from ee_into_Xg.frm code, and simply presents it in a nicer way. f1, f2, f3 are functions used in the initial result, and f3, f4, f5 are used in the final result.
 
+ - from_eeXg_to_Xeeg.frm: this code takes the amplitude resulting from the scattering process electron positron into X and photon and translates it into the amplitude for decay of X into electron positron photon, converting s, t, u into mX, x, y variables and changing sign to photon momentum. 
+
  - unitar_gggg.frm: this code simply substitutes t, u Mandelstam variables in terms of s and costheta = x as scattering angle, to be able to perform integration in x and obtain partial wave component for unitarity constraint.  
