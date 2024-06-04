@@ -34,12 +34,12 @@ L Posit = (-e^2*((g_(1, eps2)*(-i_*(g_(1, p1) - g_(1, k1)) + me*g_(1))*g_(1, eps
 id Sumpol(mu?, nu?, rho?, sigma?) = 1/2*Proj(mu, rho)*Proj(nu, sigma) + 1/2*Proj(mu, sigma)*Proj(nu, rho) - 1/3*Proj(mu, nu)*Proj(rho, sigma);
 id Proj(mu?, nu?) = d_(mu, nu) + q(mu)*q(nu)/(mX*mX);
 
+* to keep only interference terms
+id ge^2 = 0;
+
 * convenient to put constraints to 0 here to make code faster
 id p2 = k1 + k2 - p1;
 id q = k1 + k2;
-
-* to keep only interference terms
-id ge^2 = 0;
 
 id p1.eps1 = 0;
 id p1.eps2 = 0;
