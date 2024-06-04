@@ -19,20 +19,23 @@ index alpha, beta, gamma, delta, rho, sigma, mu, nu, zeta, tau, theta, lambda;
 L Comp = (-e^2*((g_(1, epspr)*(-i_*(g_(1, p) + g_(1, k)) + me*g_(1))*g_(1, eps))/(2*p.k) +
          (g_(1, eps)*(-i_*(g_(1, p) - g_(1, kpr)) + me*g_(1))*g_(1, epspr))/(-2*p.kpr)) +
 
-	 ge*gg/(2*Lambda^2) * eps(alpha) * epspr(beta) * g_(1, rho) * (ppr(sigma) + p(sigma)) *
+	 i_*ge*gg/(2*Lambda^2) * eps(alpha) * epspr(beta) * g_(1, rho) * (ppr(sigma) + p(sigma)) *
 	 Sumpol(mu, nu, rho, sigma)/(-2*k.kpr + mX*mX) * FeynXgg(mu, nu, alpha, beta, k, kpr)) *
 	 (-i_*g_(1, p) + me*g_(1)) *
 
 	 (-e^2*((g_(1, eps)*(-i_*(g_(1, p) + g_(1, k)) + me*g_(1))*g_(1, epspr))/(2*p.k) +
-         (g_(1, epspr)*(-i_*(g_(1, p) - g_(1, kpr)) + me*g_(1))*g_(1, eps))/(-2*p.kpr)) -
+         (g_(1, epspr)*(-i_*(g_(1, p) - g_(1, kpr)) + me*g_(1))*g_(1, eps))/(-2*p.kpr)) +
 
-         ge*gg/(2*Lambda^2) * eps(gamma) * epspr(lambda) * g_(1, delta) * (ppr(theta) + p(theta)) *
+         i_*ge*gg/(2*Lambda^2) * eps(gamma) * epspr(lambda) * g_(1, delta) * (ppr(theta) + p(theta)) *
 	 Sumpol(zeta, tau, delta, theta)/(-2*k.kpr + mX*mX) * FeynXgg(zeta, tau, gamma, lambda, k, kpr)) *
          (-i_*g_(1, ppr) + me*g_(1));
 
 * define the tensors needed
 id Sumpol(mu?, nu?, rho?, sigma?) = 1/2*Proj(mu, rho)*Proj(nu, sigma) + 1/2*Proj(mu, sigma)*Proj(nu, rho) - 1/3*Proj(mu, nu)*Proj(rho, sigma);
 id Proj(mu?, nu?) = d_(mu, nu) + q(mu)*q(nu)/(mX*mX);
+
+* to only keep interference terms
+id ge^2 = 0;
 
 * convenient to put constraints to 0 here to make code faster
 id ppr = p + k - kpr;

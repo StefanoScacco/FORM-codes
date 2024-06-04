@@ -19,14 +19,14 @@ index alpha, beta, gamma, delta, rho, sigma, mu, nu, zeta, tau, theta, lambda;
 L Posit = (-e^2*((g_(1, eps2)*(-i_*(g_(1, p1) - g_(1, k1)) + me*g_(1))*g_(1, eps1))/(-2*p1.k1) +
           (g_(1, eps1)*(-i_*(g_(1, p1) - g_(1, k2)) + me*g_(1))*g_(1, eps2))/(-2*p1.k2)) +
 
-	  ge*gg/(2*Lambda^2) * eps1(alpha) * eps2(beta) * g_(1, rho) * (p2(sigma) - p1(sigma)) *
+	  i_*ge*gg/(2*Lambda^2) * eps1(alpha) * eps2(beta) * g_(1, rho) * (p2(sigma) - p1(sigma)) *
 	  Sumpol(mu, nu, rho, sigma)/(2*k1.k2 + mX*mX) * FeynXgg(mu, nu, alpha, beta, k1, k2)) *
           (-i_*g_(1, p1) + me*g_(1)) *
 
 	  (-e^2*((g_(1, eps1)*(-i_*(g_(1, p1) - g_(1, k1)) + me*g_(1))*g_(1, eps2))/(-2*p1.k1) +
-          (g_(1, eps2)*(-i_*(g_(1, p1) - g_(1, k2)) + me*g_(1))*g_(1, eps1))/(-2*p1.k2)) -
+          (g_(1, eps2)*(-i_*(g_(1, p1) - g_(1, k2)) + me*g_(1))*g_(1, eps1))/(-2*p1.k2)) +
 
-          ge*gg/(2*Lambda^2) * eps1(gamma) * eps2(lambda) * g_(1, delta) * (p2(theta) - p1(theta)) *
+          i_*ge*gg/(2*Lambda^2) * eps1(gamma) * eps2(lambda) * g_(1, delta) * (p2(theta) - p1(theta)) *
 	  Sumpol(zeta, tau, delta, theta)/(2*k1.k2 + mX*mX) * FeynXgg(zeta, tau, gamma, lambda, k1, k2)) *
 	  (-i_*g_(1, p2) - me*g_(1));
 
@@ -37,6 +37,9 @@ id Proj(mu?, nu?) = d_(mu, nu) + q(mu)*q(nu)/(mX*mX);
 * convenient to put constraints to 0 here to make code faster
 id p2 = k1 + k2 - p1;
 id q = k1 + k2;
+
+* to keep only interference terms
+id ge^2 = 0;
 
 id p1.eps1 = 0;
 id p1.eps2 = 0;
