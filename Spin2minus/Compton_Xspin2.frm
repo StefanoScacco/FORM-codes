@@ -1,0 +1,90 @@
+S me, mX, e, ge, gg3, Lambda, w, wpr, xi;
+* S defines scalar quantities
+
+V q, p, ppr, k, kpr, eps, epspr;
+* V defines vectors
+
+T Sumpol, FeynXgg, Proj;
+* T defines tensors
+
+index alpha, beta, gamma, delta, rho, sigma, mu, nu, zeta, tau, theta, lambda, tau1, tau2;
+* define some indices
+
+* The amplitude follows (with real polarizations). Also, the imaginary unit is i_
+* The Feynman rule tensor has been defined FeynXgg(mu, nu, rho, sigma, k, kpr)
+
+* note 1: you can check Ward Identities by substituting k to eps or kpr to epspr, but CANCELLING p.eps = 0 and p.epspr = 0
+* note 2: xi = infty is Lorentz gauge. xi = 1 is Feynman gauge. Result is xi independent!
+
+L Comp = (-e^2*((g_(1, epspr)*(-i_*(g_(1, p) + g_(1, k)) + me*g_(1))*g_(1, eps))/(2*p.k) +
+         (g_(1, eps)*(-i_*(g_(1, p) - g_(1, kpr)) + me*g_(1))*g_(1, epspr))/(-2*p.kpr)) -
+
+	 i_*ge*gg3/(2*Lambda^4) * eps(alpha) * epspr(beta) * g5_(1) * g_(1, rho) * (ppr(sigma) + p(sigma)) *
+	 Sumpol(mu, nu, rho, sigma)/(-2*k.kpr + mX*mX) * FeynXgg(mu, nu, alpha, beta, k, kpr)) *
+	 (-i_*g_(1, p) + me*g_(1)) *
+
+	 (-e^2*((g_(1, eps)*(-i_*(g_(1, p) + g_(1, k)) + me*g_(1))*g_(1, epspr))/(2*p.k) +
+         (g_(1, epspr)*(-i_*(g_(1, p) - g_(1, kpr)) + me*g_(1))*g_(1, eps))/(-2*p.kpr)) -
+
+         i_*ge*gg3/(2*Lambda^4) * eps(gamma) * epspr(lambda) * g5_(1) * g_(1, delta) * (ppr(theta) + p(theta)) *
+	 Sumpol(zeta, tau, delta, theta)/(-2*k.kpr + mX*mX) * FeynXgg(zeta, tau, gamma, lambda, k, kpr)) *
+         (-i_*g_(1, ppr) + me*g_(1));
+
+* define the tensors needed
+id Sumpol(mu?, nu?, rho?, sigma?) = 1/2*Proj(mu, rho)*Proj(nu, sigma) + 1/2*Proj(mu, sigma)*Proj(nu, rho) - 1/3*Proj(mu, nu)*Proj(rho, sigma);
+id Proj(mu?, nu?) = d_(mu, nu) + q(mu)*q(nu)/(mX*mX);
+
+* to only keep interference terms
+*id ge^2 = 0;
+
+* convenient to put constraints to 0 here to make code faster
+id ppr = p + k - kpr;
+id q = k - kpr;
+
+id p.eps = 0;
+id p.epspr = 0;
+id k.k = 0;
+id kpr.kpr = 0;
+id k.eps = 0;
+id kpr.epspr = 0;
+
+* this .sort is the key to light speed code!
+.sort
+
+* substitute Feynman rule
+id FeynXgg(mu?, nu?, rho?, sigma?, k?, kpr?) = 2 * e_(tau1, rho, tau2, sigma) * (k(mu)*kpr(nu)*k(tau1)*kpr(tau2) - kpr(mu)*k(nu)*kpr(tau1)*k(tau2));
+
+id ppr = p + k - kpr;
+id q = k - kpr;
+
+trace4, 1;
+print;
+.sort
+
+* impose identity for epsilon
+* id e_(eps,epspr,tau1,tau2)*e_(eps,epspr,tau1,tau2) = - 2*eps.eps*epspr.epspr + 2*eps.epspr*epspr.eps;
+						   
+id p.eps = 0;
+id p.epspr = 0;
+id p.p = -me^2;
+id ppr.ppr = -me^2;
+id k.k = 0;
+id kpr.kpr = 0;
+id k.eps = 0;
+id kpr.epspr = 0;
+id eps.eps = 1;
+id epspr.epspr = 1;
+
+* impose scalar products
+id p.k = - me*w;
+id p.kpr = - me*wpr;
+id k.kpr = me*wpr - me*w;
+*id wpr = w; *low energy limit
+*id wpr = 0; *high energy limit
+
+Bracket eps.epspr, k.epspr, kpr.eps, me, mX, gg3, ge, Lambda, e;
+
+print;
+.sort
+
+.end

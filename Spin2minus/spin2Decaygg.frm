@@ -1,4 +1,4 @@
-S mX, xi;
+S mX;
 * S defines scalar quantities
 
 V k1, k2, e1, e2, pX;
