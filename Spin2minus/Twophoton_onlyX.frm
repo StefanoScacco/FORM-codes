@@ -1,13 +1,13 @@
-S me, mX, gg3, Lambda, s, t, u, R, S, T, U;
+S me, mX, gg3, Lambda, s, t, u, R, S, T, U, w, ctheta;
 * S defines scalar quantities. I added quantities for 2 systems of reference.
 
-V k1, k2, k3, k4, q, k, l, m1, m2, m3, m4, ep1, ep2, ep3, ep4, em1, em2, em3, em4, ki, kj;
-* Choice of photon polarizations: + is ep and - is em, so we distinguish the two. Also, define useful momenta that we will set
+V k1, k2, k3, k4, m1, m2, m3, m4, q, k, l, ep1, ep2, ep3, ep4, em1, em2, em3, em4;
+* Choice of photon polarizations: + is ep and - is em, so we distinguish the two. Define useful momenta that we will set
 
-T Sumpol, FeynXgg, Proj;
+T Sumpol, Proj;
 * T defines tensors
 
-index alpha, beta, gamma, delta, mu, nu, rho, sigma, tau1, tau2;
+index alpha, beta, gamma, delta, mu, nu, rho, sigma, tau1, tau2, tau3, tau4;
 * define some indices
 
 * The amplitude follows (with real polarizations). Also, the imaginary unit is i_
@@ -17,36 +17,83 @@ index alpha, beta, gamma, delta, mu, nu, rho, sigma, tau1, tau2;
 * note 2: xi = infty is Lorentz gauge. xi = 1 is Feynman gauge. Result is xi independent!
 * note 3: because photon polarizations e3 and e4 get barred, ep3_bar = em3 and ep4_bar = em4 and viceversa. So, Mpppp needs ep1, ep2, em3, em4 (invert helicities of 3, 4)
 
-L Mpppp = (gg3/Lambda^3)^2 * ep1(mu) * ep2(nu) * em3(rho) * em4(sigma) *
-         ( FeynXgg(alpha, beta, mu, nu, m1, m2)    * Sumpol(alpha, beta, gamma, delta, q)/S * FeynXgg(gamma, delta, rho, sigma, k3, k4)
-         + FeynXgg(alpha, beta, mu, rho, m1, k3)   * Sumpol(alpha, beta, gamma, delta, k)/T * FeynXgg(gamma, delta, nu, sigma, m2, k4)
-         + FeynXgg(alpha, beta, mu, sigma, m1, k4) * Sumpol(alpha, beta, gamma, delta, l)/U * FeynXgg(gamma, delta, nu, rho, m2, k3));
-	 
-L Mpppm = (gg3/Lambda^3)^2 * ep1(mu) * ep2(nu) * em3(rho) * ep4(sigma) *
-         ( FeynXgg(alpha, beta, mu, nu, m1, m2)    * Sumpol(alpha, beta, gamma, delta, q)/S * FeynXgg(gamma, delta, rho, sigma, k3, k4)
-         + FeynXgg(alpha, beta, mu, rho, m1, k3)   * Sumpol(alpha, beta, gamma, delta, k)/T * FeynXgg(gamma, delta, nu, sigma, m2, k4)
-         + FeynXgg(alpha, beta, mu, sigma, m1, k4) * Sumpol(alpha, beta, gamma, delta, l)/U * FeynXgg(gamma, delta, nu, rho, m2, k3));
+L Mpppp = 4 * (gg3/Lambda^3)^2 * ep1(mu) * ep2(nu) * em3(rho) * em4(sigma) *
+  	 ( e_(tau1, mu, tau2, nu)     * (k1(alpha)*k2(beta)*k1(tau1)*k2(tau2)  - k2(alpha)*k1(beta)*k2(tau1)*k1(tau2)) *
+	   Sumpol(alpha, beta, gamma, delta, q)/S *
+	   e_(tau3, rho, tau4, sigma) * (k3(gamma)*k4(delta)*k3(tau3)*k4(tau4) - k4(gamma)*k3(delta)*k4(tau3)*k3(tau4))
 
-L Mppmm = (gg3/Lambda^3)^2 * ep1(mu) * ep2(nu) * ep3(rho) * ep4(sigma) *
-         ( FeynXgg(alpha, beta, mu, nu, m1, m2)    * Sumpol(alpha, beta, gamma, delta, q)/S * FeynXgg(gamma, delta, rho, sigma, k3, k4)
-         + FeynXgg(alpha, beta, mu, rho, m1, k3)   * Sumpol(alpha, beta, gamma, delta, k)/T * FeynXgg(gamma, delta, nu, sigma, m2, k4)
-         + FeynXgg(alpha, beta, mu, sigma, m1, k4) * Sumpol(alpha, beta, gamma, delta, l)/U * FeynXgg(gamma, delta, nu, rho, m2, k3));
+	 + e_(tau1, mu, tau2, rho)    * (k1(alpha)*k3(beta)*k1(tau1)*k3(tau2)  - k3(alpha)*k1(beta)*k3(tau1)*k1(tau2)) *
+           Sumpol(alpha, beta, gamma, delta, k)/T *
+	   e_(tau3, nu, tau4, sigma)  * (k2(gamma)*k4(delta)*k2(tau3)*k4(tau4) - k4(gamma)*k2(delta)*k4(tau3)*k2(tau4))
 
-L Mpmpm = (gg3/Lambda^3)^2 * ep1(mu) * em2(nu) * em3(rho) * ep4(sigma) *
-         ( FeynXgg(alpha, beta, mu, nu, m1, m2)    * Sumpol(alpha, beta, gamma, delta, q)/S * FeynXgg(gamma, delta, rho, sigma, k3, k4)
-         + FeynXgg(alpha, beta, mu, rho, m1, k3)   * Sumpol(alpha, beta, gamma, delta, k)/T * FeynXgg(gamma, delta, nu, sigma, m2, k4)
-         + FeynXgg(alpha, beta, mu, sigma, m1, k4) * Sumpol(alpha, beta, gamma, delta, l)/U * FeynXgg(gamma, delta, nu, rho, m2, k3));
+	 + e_(tau1, mu, tau2, sigma)  * (k1(alpha)*k4(beta)*k1(tau1)*k4(tau2)  - k4(alpha)*k1(beta)*k4(tau1)*k1(tau2)) *
+           Sumpol(alpha, beta, gamma, delta, l)/U *
+	   e_(tau3, rho, tau4, nu)    * (k2(gamma)*k3(delta)*k2(tau3)*k3(tau4) - k3(gamma)*k2(delta)*k3(tau3)*k2(tau4)) );
+	
 
-L Mpmmp = (gg3/Lambda^3)^2 * ep1(mu) * em2(nu) * ep3(rho) * em4(sigma) *
-         ( FeynXgg(alpha, beta, mu, nu, m1, m2)    * Sumpol(alpha, beta, gamma, delta, q)/S * FeynXgg(gamma, delta, rho, sigma, k3, k4)
-         + FeynXgg(alpha, beta, mu, rho, m1, k3)   * Sumpol(alpha, beta, gamma, delta, k)/T * FeynXgg(gamma, delta, nu, sigma, m2, k4)
-         + FeynXgg(alpha, beta, mu, sigma, m1, k4) * Sumpol(alpha, beta, gamma, delta, l)/U * FeynXgg(gamma, delta, nu, rho, m2, k3));
+L Mpppm = 4 * (gg3/Lambda^3)^2 * ep1(mu) * ep2(nu) * em3(rho) * ep4(sigma) *
+         ( e_(tau1, mu, tau2, nu)     * (k1(alpha)*k2(beta)*k1(tau1)*k2(tau2)  - k2(alpha)*k1(beta)*k2(tau1)*k1(tau2)) *
+           Sumpol(alpha, beta, gamma, delta, q)/S *
+           e_(tau3, rho, tau4, sigma) * (k3(gamma)*k4(delta)*k3(tau3)*k4(tau4) - k4(gamma)*k3(delta)*k4(tau3)*k3(tau4))
 
-* substitute Feynman rule
-id FeynXgg(mu?, nu?, rho?, sigma?, ki?, kj?) = 2 * e_(tau1, rho, tau2, sigma) * (ki(mu)*kj(nu)*ki(tau1)*kj(tau2) - kj(mu)*ki(nu)*kj(tau1)*ki(tau2));
+         + e_(tau1, mu, tau2, rho)    * (k1(alpha)*k3(beta)*k1(tau1)*k3(tau2)  - k3(alpha)*k1(beta)*k3(tau1)*k1(tau2)) *
+           Sumpol(alpha, beta, gamma, delta, k)/T *
+           e_(tau3, nu, tau4, sigma)  * (k2(gamma)*k4(delta)*k2(tau3)*k4(tau4) - k4(gamma)*k2(delta)*k4(tau3)*k2(tau4))
 
-* substitute Levi-Civita property
-*id e_(k1?, k2?, tau1?, tau2?)*e_(k3?, k4?, tau1?, tau2?) = -2 * ((k1.k3)*(k2.k4) - (k1.k4)*(k2.k3));
+         + e_(tau1, mu, tau2, sigma)  * (k1(alpha)*k4(beta)*k1(tau1)*k4(tau2)  - k4(alpha)*k1(beta)*k4(tau1)*k1(tau2)) *
+           Sumpol(alpha, beta, gamma, delta, l)/U *
+           e_(tau3, rho, tau4, nu)    * (k2(gamma)*k3(delta)*k2(tau3)*k3(tau4) - k3(gamma)*k2(delta)*k3(tau3)*k2(tau4)) );
+
+
+L Mppmm = 4 * (gg3/Lambda^3)^2 * ep1(mu) * ep2(nu) * ep3(rho) * ep4(sigma) *
+         ( e_(tau1, mu, tau2, nu)     * (k1(alpha)*k2(beta)*k1(tau1)*k2(tau2)  - k2(alpha)*k1(beta)*k2(tau1)*k1(tau2)) *
+           Sumpol(alpha, beta, gamma, delta, q)/S *
+           e_(tau3, rho, tau4, sigma) * (k3(gamma)*k4(delta)*k3(tau3)*k4(tau4) - k4(gamma)*k3(delta)*k4(tau3)*k3(tau4))
+
+         + e_(tau1, mu, tau2, rho)    * (k1(alpha)*k3(beta)*k1(tau1)*k3(tau2)  - k3(alpha)*k1(beta)*k3(tau1)*k1(tau2)) *
+           Sumpol(alpha, beta, gamma, delta, k)/T *
+           e_(tau3, nu, tau4, sigma)  * (k2(gamma)*k4(delta)*k2(tau3)*k4(tau4) - k4(gamma)*k2(delta)*k4(tau3)*k2(tau4))
+
+         + e_(tau1, mu, tau2, sigma)  * (k1(alpha)*k4(beta)*k1(tau1)*k4(tau2)  - k4(alpha)*k1(beta)*k4(tau1)*k1(tau2)) *
+           Sumpol(alpha, beta, gamma, delta, l)/U *
+           e_(tau3, rho, tau4, nu)    * (k2(gamma)*k3(delta)*k2(tau3)*k3(tau4) - k3(gamma)*k2(delta)*k3(tau3)*k2(tau4)) );
+
+
+L Mpmpm = 4 * (gg3/Lambda^3)^2 * ep1(mu) * em2(nu) * em3(rho) * ep4(sigma) *
+         ( e_(tau1, mu, tau2, nu)     * (k1(alpha)*k2(beta)*k1(tau1)*k2(tau2)  - k2(alpha)*k1(beta)*k2(tau1)*k1(tau2)) *
+           Sumpol(alpha, beta, gamma, delta, q)/S *
+           e_(tau3, rho, tau4, sigma) * (k3(gamma)*k4(delta)*k3(tau3)*k4(tau4) - k4(gamma)*k3(delta)*k4(tau3)*k3(tau4))
+
+         + e_(tau1, mu, tau2, rho)    * (k1(alpha)*k3(beta)*k1(tau1)*k3(tau2)  - k3(alpha)*k1(beta)*k3(tau1)*k1(tau2)) *
+           Sumpol(alpha, beta, gamma, delta, k)/T *
+           e_(tau3, nu, tau4, sigma)  * (k2(gamma)*k4(delta)*k2(tau3)*k4(tau4) - k4(gamma)*k2(delta)*k4(tau3)*k2(tau4))
+
+         + e_(tau1, mu, tau2, sigma)  * (k1(alpha)*k4(beta)*k1(tau1)*k4(tau2)  - k4(alpha)*k1(beta)*k4(tau1)*k1(tau2)) *
+           Sumpol(alpha, beta, gamma, delta, l)/U *
+           e_(tau3, rho, tau4, nu)    * (k2(gamma)*k3(delta)*k2(tau3)*k3(tau4) - k3(gamma)*k2(delta)*k3(tau3)*k2(tau4)) );
+
+
+L Mpmmp = 4 * (gg3/Lambda^3)^2 * ep1(mu) * em2(nu) * ep3(rho) * em4(sigma) *
+         ( e_(tau1, mu, tau2, nu)     * (k1(alpha)*k2(beta)*k1(tau1)*k2(tau2)  - k2(alpha)*k1(beta)*k2(tau1)*k1(tau2)) *
+           Sumpol(alpha, beta, gamma, delta, q)/S *
+           e_(tau3, rho, tau4, sigma) * (k3(gamma)*k4(delta)*k3(tau3)*k4(tau4) - k4(gamma)*k3(delta)*k4(tau3)*k3(tau4))
+
+         + e_(tau1, mu, tau2, rho)    * (k1(alpha)*k3(beta)*k1(tau1)*k3(tau2)  - k3(alpha)*k1(beta)*k3(tau1)*k1(tau2)) *
+           Sumpol(alpha, beta, gamma, delta, k)/T *
+           e_(tau3, nu, tau4, sigma)  * (k2(gamma)*k4(delta)*k2(tau3)*k4(tau4) - k4(gamma)*k2(delta)*k4(tau3)*k2(tau4))
+
+         + e_(tau1, mu, tau2, sigma)  * (k1(alpha)*k4(beta)*k1(tau1)*k4(tau2)  - k4(alpha)*k1(beta)*k4(tau1)*k1(tau2)) *
+           Sumpol(alpha, beta, gamma, delta, l)/U *
+           e_(tau3, rho, tau4, nu)    * (k2(gamma)*k3(delta)*k2(tau3)*k3(tau4) - k3(gamma)*k2(delta)*k3(tau3)*k2(tau4)) );
+
+* define generic tensor product for Levi Civita
+id e_(k1?, k2?, k3?, k4?) * e_(m1?, m2?, m3?, m4?) =
+      			(k1.m1)*(k2.m2)*(k3.m3)*(k4.m4) - (k1.m1)*(k2.m2)*(k3.m4)*(k4.m3) - (k1.m1)*(k2.m3)*(k3.m2)*(k4.m4) + (k1.m1)*(k2.m3)*(k3.m4)*(k4.m2) 
+	              + (k1.m1)*(k2.m4)*(k3.m2)*(k4.m3) - (k1.m1)*(k2.m4)*(k3.m3)*(k4.m2) - (k1.m2)*(k2.m1)*(k3.m3)*(k4.m4) + (k1.m2)*(k2.m1)*(k3.m4)*(k4.m3)
+	              + (k1.m2)*(k2.m3)*(k3.m1)*(k4.m4) - (k1.m2)*(k2.m3)*(k3.m4)*(k4.m1) - (k1.m2)*(k2.m4)*(k3.m1)*(k4.m3) + (k1.m2)*(k2.m4)*(k3.m3)*(k4.m1)
+	              + (k1.m3)*(k2.m1)*(k3.m2)*(k4.m4) - (k1.m3)*(k2.m1)*(k3.m4)*(k4.m2) - (k1.m3)*(k2.m2)*(k3.m1)*(k4.m4) + (k1.m3)*(k2.m2)*(k3.m4)*(k4.m1)
+		      + (k1.m3)*(k2.m4)*(k3.m1)*(k4.m2) - (k1.m3)*(k2.m4)*(k3.m2)*(k4.m1) - (k1.m4)*(k2.m1)*(k3.m2)*(k4.m3) + (k1.m4)*(k2.m1)*(k3.m3)*(k4.m2)
+	              + (k1.m4)*(k2.m2)*(k3.m1)*(k4.m3) - (k1.m4)*(k2.m2)*(k3.m3)*(k4.m1) - (k1.m4)*(k2.m3)*(k3.m1)*(k4.m2) + (k1.m4)*(k2.m3)*(k3.m2)*(k4.m1);
 
 * define last tensors needed
 id Sumpol(mu?, nu?, alpha?, beta?, q?) = 1/2*Proj(mu, alpha, q)*Proj(nu, beta, q) + 1/2*Proj(mu, beta, q)*Proj(nu, alpha, q) - 1/3*Proj(mu, nu, q)*Proj(alpha, beta, q);
@@ -56,10 +103,6 @@ id Proj(mu?, nu?, q?) = d_(mu, nu) + q(mu)*q(nu)/(mX*mX);
 id q = k1 + k2;
 id k = k1 - k3;
 id l = k1 - k4;
-id m1 = -k1;
-id m2 = -k2;
-id m3 = -k3;
-id m4 = -k4;
 *id S^-1 = (q.q + mX*mX)^-1;
 *id T^-1 = (k.k + mX*mX)^-1;
 *id U^-1 = (l.l + mX*mX)^-1;
@@ -164,10 +207,9 @@ id em3.ep4 = -1;
 id em3.em4 = 0;
 
 * useful simplificating constraints
-*id u = - s - t;
-*id s = - t - u;
-*id t = - s - u;
-
+id u = - s - t;
+id t = - s - u;
+id s = - t - u;
 
 Bracket gg3, Lambda, mX, R, S, T, U;
 
@@ -177,4 +219,5 @@ print;
 
 .end
 
-B
+
+
