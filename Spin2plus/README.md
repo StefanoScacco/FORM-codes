@@ -1,4 +1,4 @@
-This is a list of codes that allow for modulus squared calculations for decays X to e+e-, e+e- + photon, 2 photons, Compton scattering, electron positron annihilation into two photons, Bhabha scattering, Moller scattering and two-photon scattering, mediated by a massive spin 2 boson, which we identify with the X resonance at 17 MeV found by the ATOMKI and JINR collaborations independently. Fermion polarizations have been summed. Spin 2 polarizations have been summed. Photon polarizations have not been summed.
+This is a list of codes that allow for modulus squared calculations for decays X to e+e-, e+e- + photon, 2 photons, Compton scattering, electron positron annihilation into two photons, Bhabha scattering, Moller scattering and two-photon scattering, mediated by a massive spin 2 boson with positive parity, which we identify with the X resonance at 17 MeV found by the ATOMKI and JINR collaborations independently. Fermion polarizations have been summed. Spin 2 polarizations have been summed. Photon polarizations have not been summed.
 
 To execute code, install FORM on your device, and simply type at command line (it might take a couple of seconds):
 
@@ -7,7 +7,7 @@ form <filename.frm>
 
 
 Here is the complete list of codes found in the repository:
- - README.md: instructions for execution of codes in FORM. Meta warning: you are reading this file right now!.
+ - README.md: instructions for execution of codes in FORM. Meta warning: you are reading this file right now!
  
  - spin2Decayee.frm: this code calculates the amplitude for the decay process X to e+ e-, where X is a spin 2 massive boson with mass mX, and the Feynman rule is found in my thesis.
 
@@ -47,4 +47,4 @@ Here is the complete list of codes found in the repository:
 
  - from_eeXg_to_Xeeg.frm: this code takes the amplitude resulting from the scattering process electron positron into X and photon and translates it into the amplitude for decay of X into electron positron photon, converting s, t, u into mX, x, y variables and changing sign to photon momentum. 
 
- - unitar_gggg.frm: this code simply substitutes t, u Mandelstam variables in terms of s and costheta = x as scattering angle, to be able to perform integration in x and obtain partial wave component for unitarity constraint.  
+ - unitar_gggg.frm: this code simply substitutes t, u Mandelstam variables in terms of s and costheta = x as scattering angle, to be able to perform integration in x and obtain partial wave component for unitarity constraint, in the photon scattering case, for the photon coupling.  
