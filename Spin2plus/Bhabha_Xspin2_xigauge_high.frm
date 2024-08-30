@@ -38,9 +38,9 @@ id XresPhot2(mu?, nu?, alpha?, beta?, p1?, p2?, p3?, p4?, q?) =
                   e^2*Phot(mu, nu, q) + ge^2/(4*Lambda^2)*Sumpol(mu, nu, alpha, beta, q)/(q.q + mX^2) * (p3(alpha) + p1(alpha)) * (p2(beta) + p4(beta));
 
 * to switch interactions off, impose conditions here
-id ge^4 = 0;
-id e^4 = 0;
-*id e = 0;
+*id ge^4 = 0;
+*id e^4 = 0;
+id e = 0;
 *id ge = 0;
 
 * define last tensors needed
