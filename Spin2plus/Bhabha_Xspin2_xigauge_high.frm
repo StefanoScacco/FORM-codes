@@ -1,4 +1,4 @@
-S me, mX, s, t, u, e, ge, Lambda, xi;
+S me, mX, s, t, u, e, ge, Lambda, xi, E, p, x;
 * S defines scalar quantities
 
 V p1, p2, p3, p4, q, k, l;
@@ -13,11 +13,11 @@ index mu, nu, alpha, beta, rho, sigma, gamma, lambda;
 * The amplitude follows here. Also, the imaginary unit is i_
 * note: xi = infty is Lorentz gauge. xi = 1 is Feynman gauge. Result is xi independent!
 
-L Bhabha =
+L Bhabha = t^2 * (
      	  XresPhot1(mu, nu, alpha, beta, p1, p2, p3, p4, q) * XresPhot1(rho, sigma, gamma, lambda, p1, p2, p3, p4, q) * Tr1(1, mu, p1, rho, p2) * Tr2(2, nu, p4, sigma, p3)
         + XresPhot2(mu, nu, alpha, beta, p1, p2, p3, p4, k) * XresPhot2(rho, sigma, gamma, lambda, p1, p2, p3, p4, k) * Tr3(3, mu, p1, rho, p3) * Tr4(4, nu, p4, sigma, p2)
         - XresPhot1(mu, nu, alpha, beta, p1, p2, p3, p4, q) * XresPhot2(rho, sigma, gamma, lambda, p1, p2, p3, p4, k) * Tr5(5, mu, p1, rho, p3, nu, p4, sigma, p2)
-        - XresPhot2(mu, nu, alpha, beta, p1, p2, p3, p4, k) * XresPhot1(rho, sigma, gamma, lambda, p1, p2, p3, p4, q) * Tr6(6, mu, p1, rho, p2, nu, p4, sigma, p3);
+        - XresPhot2(mu, nu, alpha, beta, p1, p2, p3, p4, k) * XresPhot1(rho, sigma, gamma, lambda, p1, p2, p3, p4, q) * Tr6(6, mu, p1, rho, p2, nu, p4, sigma, p3));
                 
 * define the traces needed
 id Tr1(1, mu?, p1?, rho?, p2?)   = g_(1, mu) * (-i_*g_(1, p1) + me*g_(1)) * g_(1, rho)   * (-i_*g_(1, p2) - me*g_(1));
@@ -39,7 +39,7 @@ id XresPhot2(mu?, nu?, alpha?, beta?, p1?, p2?, p3?, p4?, q?) =
 
 * to switch interactions off, impose conditions here
 id ge^4 = 0;
-*id e^4 = 0;
+id e^4 = 0;
 *id e = 0;
 *id ge = 0;
 
@@ -84,10 +84,15 @@ id p1.p4 = -u/2 - me^2;
 id p2.p3 = -u/2	- me^2;
 *id me = 0;
 
-* to simplify you may use these constraints
-*id t = - s - u - 4*me^2;
-*id u = - s - t - 4*me^2;
-*id s = - t - u - 4*me^2;
+* to simplify for forward scattering, you may use these constraints. x = \sqrt{|s|}
+id s = -4*E^2;
+id t = 2*p^2;
+id u = 2*p^2;
+id s^-1 = -(4*E^2)^-1;
+id t^-1 = (2*p^2)^-1;
+id u^-1 = (2*p^2)^-1;
+id p^2 = E^2 - me^2;
+id E = x/2;
 
 Bracket e, me, mX, ge, Lambda;
 

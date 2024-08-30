@@ -42,6 +42,7 @@ L Mpmmp = (gg/Lambda)^2 * ep1(mu) * em2(nu) * ep3(rho) * em4(sigma) *
          + FeynXgg(alpha, beta, mu, rho, m1, k3)   * Sumpol(alpha, beta, gamma, delta, k)/T * FeynXgg(gamma, delta, nu, sigma, m2, k4)
          + FeynXgg(alpha, beta, mu, sigma, m1, k4) * Sumpol(alpha, beta, gamma, delta, l)/U * FeynXgg(gamma, delta, nu, rho, m2, k3));
 
+
 * substitute Feynman rule
 id FeynXgg(mu?, nu?, rho?, sigma?, ki?, kj?) =
           - d_(rho, sigma)*(ki(mu)*kj(nu) + ki(nu)*kj(mu))
@@ -173,10 +174,10 @@ id em3.ep4 = -1;
 id em3.em4 = 0;
 
 * useful simplificating constraints
-id u = - s - t;
-id s = - t - u;
 *id t = - s - u;
-
+id u = - s - t;
+id t = - s - u;
+* id s = - t - u;
 
 Bracket gg, Lambda, mX, R, S, T, U;
 
