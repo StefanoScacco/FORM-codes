@@ -1,4 +1,4 @@
-S me, mX, s, t, u, e, ge, Lambda, xi, GAMMA, E, p, x;
+S me, mX, s, t, u, e, ge, Lambda, xi, E, p, x;
 * S defines scalar quantities
 
 V p1, p2, p3, p4, q, k, l;
