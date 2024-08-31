@@ -25,19 +25,9 @@ Here is the complete list of codes found in the repository:
 
  - Twophoton.frm: this code calculates the QED loop trace for the two-photon scattering process. It does not perform the integration in loop momentum, and it is used only to verify that QED amplitude is gauge invariant and finite.
 
- - Compton_onlyX_xigauge.frm: this code calculates a simplified version of the modulus squared of the spin 2 massive boson mediated process in Compton scattering only. Since there are no interference terms between QED diagrams and the spin 2 diagram, the latter can be analyzed singularly. Calculations were carried out in xi gauge. To speed up the software, it is recommended to substitute 1\xi = 0 (Lorentz gauge).
- 
- - Annihilation_onlyX_xigauge.frm: this code calculates a simplified version of the modulus squared of the spin 2 massive boson mediated process in e+ e- annihilation only. Since there are no interference terms between QED diagrams and the spin 2 diagram, the latter can be analyzed singularly. Calculations were carried out in xi gauge. To speed up the software, it is recommended to substitute 1\xi = 0 (Lorentz gauge).
+ - Bhabha_Xspin2_xigauge.frm: this code calculates the modulus squared of the total tree level amplitude for the Bhabha scattering, corrected by spin 2 massive boson mediation (all four diagrams included). Calculations were carried out in xi gauge. The gauge only enters the QED part. It is highly suggested to impose ge^4 = 0 in the code, to get rid of the computation heavy part, and speed the code up to just a couple of seconds. Also, it is suggested to study s-channel, t-channel and interference separately.
 
- - Twophoton_onlyX_xigauge.frm:	this code calculates the total tree level amplitudes (not squared) for two-photon scattering, without mediation of QED, for every independent choice of photon polarizations (remember that final state is barred, so polarizations switch), and results are polarization dependent. Calculations were carried out in xi gauge, and result is immediate.
-
- - Compton_Xspin2_xigauge.frm: this code calculates the modulus squared of the total tree level amplitude for the Compton scattering, corrected by spin 2 massive boson mediation (all three diagrams included). Calculations were carried out in xi gauge. To speed up the software, it is recommended to substitute 1\xi = 0 (Lorentz gauge).
- 
- - Annihilation_Xspin2_xigauge.frm: this code calculates the modulus squared of the total tree level amplitude for the annihilation into two photons, corrected by spin 2 massive boson mediation (all three diagrams included). Calculations were carried out in xi gauge. To speed up the software, it is recommended to substitute 1\xi = 0 (Lorentz gauge).
- 
- - Bhabha_Xspin2_xigauge.frm: this code calculates the modulus squared of the total tree level amplitude for the Bhabha scattering, corrected by spin 2 massive boson mediation (all four diagrams included). Calculations were carried out in xi gauge. The gauge only enters the QED part. It is highly suggested to impose ge^4 = 0 in the code, to get rid of the computation heavy part, and speed the code up to just a couple of seconds. Also, it is suggested to study s-channel, t-channel and interference separately. 
-
- - Bhabha_Xspin2_xigauge_relat.frm: this code calculates the relativistic limit of the total tree level amplitude, to find the cusps of the cross section. It sets x = cos theta. To get results easy to manipulate, multiply t to find interference terms and multiply t^2 to find squared moduli terms (execution takes a few minutes).
+- Bhabha_Xspin2_xigauge_relat.frm: this code calculates the relativistic limit of the total tree level amplitude, to find the cusps of the cross section. It sets x = cos theta. To get results easy to manipulate, multiply t to find interference terms and multiply t^2 to find squared moduli terms (execution takes a few minutes).
 
  - Bhabha_Xspin2_xigauge_high.frm: this code calculates the total tree level amplitude for cos theta = 0, to find the cusps of the cross section. It sets x = sqrt{s}. To get results easy to manipulate, multiply t^2 to find interference terms and multiply t^2 to find squared moduli terms (execution takes a few minutes).
 
@@ -47,12 +37,24 @@ Here is the complete list of codes found in the repository:
 
  - Moller_Xspin2_xigauge.frm: this code calculates the modulus squared of the total tree level amplitude for the Moller scattering, corrected by spin 2 massive boson mediation (all four diagrams included). Calculations were carried out in xi gauge. The gauge only enters the QED part. It is highly suggested to impose ge^4 = 0 in the code, to get rid of the computation heavy part, and speed the code up to just a couple of seconds. Also, it is suggested to study t-channel, u-channel and interference separately.
 
- - Moller_Xspin2_xigauge_relat.frm: this code calculates the relativistic limit of the total tree level amplitude, to find the cusps of the cross section. It sets x = cos theta. To get results easy to manipulate, multiply ut to find interference terms and multiply u^2t^2 to find squared moduli terms (execution takes a few minutes).
+ - Moller_Xspin2_xigauge_relat.frm: this code calculates the relativistic limit of the total tree level amplitude, to find the cusps of the cross section. It sets x = cos theta. To get results easy to manipulate, multiply u^2t^2 to find interference terms and multiply u^2t^2 to find squared moduli terms (execution takes a few minutes).
 
  - Moller_Xspin2_xigauge_high.frm: this code calculates the total tree level amplitude for cos theta = 0, to find the cusps of the cross section. It sets x = sqrt{s}. To get results easy to manipulate, multiply t to find interference terms and multiply t^2 to find squared moduli terms (execution takes a few minutes).
 
- - Moller_Xspin2_xigauge_forw.frm: this code calculates the total tree level amplitude for cos theta = 1, to find the cusps of the cross section. It sets x = sqrt{s}. To get results easy to manipulate, multiply ut to find interference terms and multiply 1 to find squared moduli terms (execution takes a few minutes).
+ - Moller_Xspin2_xigauge_forw.frm: this code calculates the total tree level amplitude for cos theta = 1, to find the cusps of the cross section. It sets x = sqrt{s}. To get results easy to manipulate, multiply t to find interference terms and multiply 1 to find squared moduli terms (execution takes a few minutes).
 
+ - Compton_onlyX_xigauge.frm: this code calculates a simplified version of the modulus squared of the spin 2 massive boson mediated process in Compton scattering only. Since there are no interference terms between QED diagrams and the spin 2 diagram, the latter can be analyzed singularly. Calculations were carried out in xi gauge. To speed up the software, it is recommended to substitute 1\xi = 0 (Lorentz gauge).
+ 
+ - Annihilation_onlyX_xigauge.frm: this code calculates a simplified version of the modulus squared of the spin 2 massive boson mediated process in e+ e- annihilation only. Since there are no interference terms between QED diagrams and the spin 2 diagram, the latter can be analyzed singularly. Calculations were carried out in xi gauge. To speed up the software, it is recommended to substitute 1\xi = 0 (Lorentz gauge).
+
+ - Twophoton_onlyX_xigauge.frm:	this code calculates the total tree level amplitudes (not squared) for two-photon scattering, without mediation of QED, for every independent choice of photon polarizations (remember that final state is barred, so polarizations switch), and results are polarization dependent. Calculations were carried out in xi gauge, and result is immediate.
+
+ - Compton_Xspin2_xigauge.frm: this code calculates the modulus squared of the total tree level amplitude for the Compton scattering, corrected by spin 2 massive boson mediation (all three diagrams included). Calculations were carried out in xi gauge. To speed up the software, it is recommended to substitute 1\xi = 0 (Lorentz gauge).
+
+ - Compton_Xspin2_zeros.frm: this code manipulates the total FORM results of Compton scattering contribution at interference order and squared moduli order, setting x = cos theta, to get a nicer result and study the zeros of the cross section in scattering angle.
+
+ - Annihilation_Xspin2_xigauge.frm: this code calculates the modulus squared of the total tree level amplitude for the annihilation into two photons, corrected by spin 2 massive boson mediation (all three diagrams included). Calculations were carried out in xi gauge. To speed up the software, it is recommended to substitute 1\xi = 0 (Lorentz gauge).
+ 
  - ee_into_Xg.frm: this code calculates squared amplitude of the process electron positron into X and photon, X being spin 2 particle, in the massless fermion limit. Result of the code is gauge independent (2 gauge parameters are there: xi1 and xi2), and it also satisfies Ward identities. It is suggested to substitute Mandelstam variables alternatively to quickly compare result with literature, and to multiply amplitude by 6*mX^4*s*t*u.
 
  - manip_eeXg.frm: this code manipulates result from ee_into_Xg.frm code, and simply presents it in a nicer way. f1, f2, f3 are functions used in the initial result, and f3, f4, f5 are used in the final result.
