@@ -13,7 +13,7 @@ index mu, nu, alpha, beta, rho, sigma, gamma, lambda;
 * The amplitude follows here. Also, the imaginary unit is i_
 * note: xi = infty is Lorentz gauge. xi = 1 is Feynman gauge. Result is xi independent!
 
-L Moller = 2*p^2 * (
+L Moller = t^2 * (
           XresPhot1(mu, nu, alpha, beta, p1, p2, p3, p4, q) * XresPhot1(rho, sigma, gamma, lambda, p1, p2, p3, p4, q) * Tr1(1, mu, p2, rho, p4) * Tr2(2, nu, p1, sigma, p3)
         + XresPhot2(mu, nu, alpha, beta, p1, p2, p3, p4, k) * XresPhot2(rho, sigma, gamma, lambda, p1, p2, p3, p4, k) * Tr3(3, mu, p1, rho, p4) * Tr4(4, nu, p2, sigma, p3)
         - XresPhot1(mu, nu, alpha, beta, p1, p2, p3, p4, q) * XresPhot2(rho, sigma, gamma, lambda, p1, p2, p3, p4, k) * Tr5(5, mu, p2, sigma, p3, nu, p1, rho, p4)
@@ -33,9 +33,9 @@ id Tr6(6, mu?, p1?, sigma?, p3?, nu?, p2?, rho?, p4?) =
 
 * sum of the QED contribution and spin 2 contribution: same diagram. Minus sign is needed
 id XresPhot1(mu?, nu?, alpha?, beta?, p1?, p2?, p3?, p4?, q?) =
-                  e^2*Phot(mu, nu, q) - ge^2/(4*Lambda^2)*Sumpol(mu, nu, alpha, beta, q) * (p3(alpha) + p1(alpha)) * (p2(beta) + p4(beta));
+                  e^2*Phot(mu, nu, q) - ge^2/(4*Lambda^2)*Sumpol(mu, nu, alpha, beta, q)/(q.q + mX^2) * (p3(alpha) + p1(alpha)) * (p2(beta) + p4(beta));
 id XresPhot2(mu?, nu?, alpha?, beta?, p1?, p2?, p3?, p4?, q?) =
-                  e^2*Phot(mu, nu, q) - ge^2/(4*Lambda^2)*Sumpol(mu, nu, alpha, beta, q) * (p4(alpha) + p1(alpha)) * (p2(beta) + p3(beta));
+                  e^2*Phot(mu, nu, q) - ge^2/(4*Lambda^2)*Sumpol(mu, nu, alpha, beta, q)/(q.q + mX^2) * (p4(alpha) + p1(alpha)) * (p2(beta) + p3(beta));
 
 * to switch interactions off, impose conditions here
 *id ge^4 = 0;
@@ -84,7 +84,7 @@ id p1.p4 = -u/2 - me^2;
 id p2.p3 = -u/2	- me^2;
 *id me = 0;
 
-* to simplify for forward scattering, you may use these constraints. x = \sqrt{|s|}
+* to simplify for high angle scattering, you may use these constraints. x = \sqrt{|s|}
 id s = -4*E^2;
 id t = u;
 id u = 2*p^2;

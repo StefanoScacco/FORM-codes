@@ -14,10 +14,10 @@ index mu, nu, alpha, beta, rho, sigma, gamma, lambda;
 * note: xi = infty is Lorentz gauge. xi = 1 is Feynman gauge. Result is xi independent!
 
 L Moller = u^2*t^2*(
-*          XresPhot1(mu, nu, alpha, beta, p1, p2, p3, p4, q) * XresPhot1(rho, sigma, gamma, lambda, p1, p2, p3, p4, q) * Tr1(1, mu, p2, rho, p4) * Tr2(2, nu, p1, sigma, p3)
-        + XresPhot2(mu, nu, alpha, beta, p1, p2, p3, p4, k) * XresPhot2(rho, sigma, gamma, lambda, p1, p2, p3, p4, k) * Tr3(3, mu, p1, rho, p4) * Tr4(4, nu, p2, sigma, p3));
-*        - XresPhot1(mu, nu, alpha, beta, p1, p2, p3, p4, q) * XresPhot2(rho, sigma, gamma, lambda, p1, p2, p3, p4, k) * Tr5(5, mu, p2, sigma, p3, nu, p1, rho, p4)
-*        - XresPhot2(mu, nu, alpha, beta, p1, p2, p3, p4, k) * XresPhot1(rho, sigma, gamma, lambda, p1, p2, p3, p4, q) * Tr6(6, mu, p1, sigma, p3, nu, p2, rho, p4));
+          XresPhot1(mu, nu, alpha, beta, p1, p2, p3, p4, q) * XresPhot1(rho, sigma, gamma, lambda, p1, p2, p3, p4, q) * Tr1(1, mu, p2, rho, p4) * Tr2(2, nu, p1, sigma, p3)
+        + XresPhot2(mu, nu, alpha, beta, p1, p2, p3, p4, k) * XresPhot2(rho, sigma, gamma, lambda, p1, p2, p3, p4, k) * Tr3(3, mu, p1, rho, p4) * Tr4(4, nu, p2, sigma, p3)
+        - XresPhot1(mu, nu, alpha, beta, p1, p2, p3, p4, q) * XresPhot2(rho, sigma, gamma, lambda, p1, p2, p3, p4, k) * Tr5(5, mu, p2, sigma, p3, nu, p1, rho, p4)
+        - XresPhot2(mu, nu, alpha, beta, p1, p2, p3, p4, k) * XresPhot1(rho, sigma, gamma, lambda, p1, p2, p3, p4, q) * Tr6(6, mu, p1, sigma, p3, nu, p2, rho, p4));
                 
 * define the tensors needed
 id Tr1(1, mu?, p2?, rho?, p4?)   = g_(1, mu) * (-i_*g_(1, p2) + me*g_(1)) * g_(1, rho)   * (-i_*g_(1, p4) + me*g_(1));
@@ -38,8 +38,9 @@ id XresPhot2(mu?, nu?, alpha?, beta?, p1?, p2?, p3?, p4?, q?) =
                   e^2*Phot(mu, nu, q) - ge^2/(4*Lambda^2)*Sumpol(mu, nu, alpha, beta, q)/(q.q) * (p4(alpha) + p1(alpha)) * (p2(beta) + p3(beta));
 
 * to switch interactions off, impose conditions here
-*id ge^4 = 0;
-id e = 0;
+id ge^4 = 0;
+id e^4 = 0;
+*id e = 0;
 *id ge = 0;
 
 * define last tensors needed

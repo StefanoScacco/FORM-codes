@@ -84,7 +84,7 @@ id p1.p4 = -u/2 - me^2;
 id p2.p3 = -u/2	- me^2;
 *id me = 0;
 
-* to simplify for forward scattering, you may use these constraints. x = \sqrt{|s|}
+* to simplify for high angle scattering scattering, you may use these constraints. x = \sqrt{|s|}
 id s = -4*E^2;
 id t = 2*p^2;
 id u = 2*p^2;

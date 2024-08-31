@@ -43,9 +43,15 @@ Here is the complete list of codes found in the repository:
 
  - Bhabha_Xspin2_xigauge_forw.frm: this code calculates the total tree level amplitude for cos theta = 1, to find the cusps of the cross section. It sets x = sqrt{s}. To get results easy to manipulate, multiply t to find interference terms and multiply 1 to find squared moduli terms (execution takes a few minutes).
 
+ - Bhabha_Xspin1_xigauge.frm: this code calculates the modulus squared of the total tree level amplitude for the Bhabha scattering, corrected by spin 1 massive boson mediation (all four diagrams included). Calculations were carried out in xi gauge. The gauge only enters the QED part. It is suggested to study s-channel, t-channel and interference separately.
+
  - Moller_Xspin2_xigauge.frm: this code calculates the modulus squared of the total tree level amplitude for the Moller scattering, corrected by spin 2 massive boson mediation (all four diagrams included). Calculations were carried out in xi gauge. The gauge only enters the QED part. It is highly suggested to impose ge^4 = 0 in the code, to get rid of the computation heavy part, and speed the code up to just a couple of seconds. Also, it is suggested to study t-channel, u-channel and interference separately.
 
- - Bhabha_Xspin1_xigauge.frm: this code calculates the modulus squared of the total tree level amplitude for the Bhabha scattering, corrected by spin 1 massive boson mediation (all four diagrams included). Calculations were carried out in xi gauge. The gauge only enters the QED part. It is suggested to study s-channel, t-channel and interference separately.
+ - Moller_Xspin2_xigauge_relat.frm: this code calculates the relativistic limit of the total tree level amplitude, to find the cusps of the cross section. It sets x = cos theta. To get results easy to manipulate, multiply ut to find interference terms and multiply u^2t^2 to find squared moduli terms (execution takes a few minutes).
+
+ - Moller_Xspin2_xigauge_high.frm: this code calculates the total tree level amplitude for cos theta = 0, to find the cusps of the cross section. It sets x = sqrt{s}. To get results easy to manipulate, multiply t to find interference terms and multiply t^2 to find squared moduli terms (execution takes a few minutes).
+
+ - Moller_Xspin2_xigauge_forw.frm: this code calculates the total tree level amplitude for cos theta = 1, to find the cusps of the cross section. It sets x = sqrt{s}. To get results easy to manipulate, multiply ut to find interference terms and multiply 1 to find squared moduli terms (execution takes a few minutes).
 
  - ee_into_Xg.frm: this code calculates squared amplitude of the process electron positron into X and photon, X being spin 2 particle, in the massless fermion limit. Result of the code is gauge independent (2 gauge parameters are there: xi1 and xi2), and it also satisfies Ward identities. It is suggested to substitute Mandelstam variables alternatively to quickly compare result with literature, and to multiply amplitude by 6*mX^4*s*t*u.
 
