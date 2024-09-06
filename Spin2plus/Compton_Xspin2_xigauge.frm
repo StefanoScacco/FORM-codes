@@ -35,7 +35,9 @@ id Sumpol(mu?, nu?, rho?, sigma?) = 1/2*Proj(mu, rho)*Proj(nu, sigma) + 1/2*Proj
 id Proj(mu?, nu?) = d_(mu, nu) + q(mu)*q(nu)/(mX*mX);
 
 * to only keep interference terms
-id ge^2 = 0;
+*id ge^2 = 0;
+*id e^4 = 0;
+id e = 0;
 
 * convenient to put constraints to 0 here to make code faster
 id ppr = p + k - kpr;

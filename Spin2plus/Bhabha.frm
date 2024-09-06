@@ -1,4 +1,4 @@
-S me, s, t, u, e, csi;
+S me, s, t, u, e, xi;
 * S defines scalar quantities
 
 V p1, p2, p3, p4, q, k, l;
@@ -11,7 +11,7 @@ index mu, nu, rho, sigma;
 * define some indices
 
 * The amplitude follows here. Also, the imaginary unit is i_
-* note: csi = infty is Lorentz gauge. csi = 1 is Feynman gauge. Result is csi independent!
+* note: xi = infty is Lorentz gauge. xi = 1 is Feynman gauge. Result is xi independent!
 
 L Bhabha = e^4 * (
   	       	   Phot(mu, nu, q) * Phot(rho, sigma, q) * Tr1(1, mu, p1, rho, p2) * Tr2(2, nu, p4, sigma, p3)
@@ -31,7 +31,7 @@ id Tr6(6, mu?, p1?, rho?, p2?, nu?, p4?, sigma?, p3?) =
    	       	    	       	   g_(6, mu) * (-i_*g_(6, p1) + me*g_(6)) * g_(6, rho)   * (-i_*g_(6, p2) - me*g_(6)) *
                                    g_(6, nu) * (-i_*g_(6, p4) - me*g_(6)) * g_(6, sigma) * (-i_*g_(6, p3) + me*g_(6));
 
-id Phot(mu?, nu?, q?) = 1/(q.q) * ( d_(mu, nu) + (1 - 1/csi)*q(mu)*q(nu)/(q.q));
+id Phot(mu?, nu?, q?) = 1/(q.q) * ( d_(mu, nu) + (1 - 1/xi)*q(mu)*q(nu)/(q.q));
 
 * impose conservation of energy
 id q = p1 + p2;
@@ -40,7 +40,7 @@ id l = p1 - p4;
 id p4 = p1 + p2 - p3;
 
 * select your favorite gauge
-*id 1/csi = 0;
+*id 1/xi = 0;
 
 * calculate all the needed traces
 trace4, 1;
