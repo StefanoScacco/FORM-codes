@@ -36,6 +36,7 @@ id Proj(mu?, nu?) = d_(mu, nu) + q(mu)*q(nu)/(mX*mX);
 
 * to keep only interference terms
 id ge^2 = 0;
+id e^4 = 0;
 
 * convenient to put constraints to 0 here to make code faster
 id p2 = k1 + k2 - p1;

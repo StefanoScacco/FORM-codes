@@ -59,19 +59,19 @@ print;
 .sort
 
 * impose these constraints to simplify result
-id q.q^-1 = s^-1;
-id k.k^-1 = t^-1;
-id l.l^-1 = u^-1;
+id q.q^-1 = -s^-1;
+id k.k^-1 = -t^-1;
+id l.l^-1 = -u^-1;
 id p1.p1 = -me^2;
 id p2.p2 = -me^2;
 id p3.p3 = -me^2;
 id p4.p4 = -me^2;
-id p1.p2 = s/2 + me^2;
-id p3.p4 = s/2 + me^2;
-id p1.p3 = -t/2 - me^2;
-id p2.p4 = -t/2	- me^2;
-id p1.p4 = -u/2 - me^2;
-id p2.p3 = -u/2	- me^2;
+id p1.p2 = -s/2 + me^2;
+id p3.p4 = -s/2 + me^2;
+id p1.p3 = t/2 - me^2;
+id p2.p4 = t/2 - me^2;
+id p1.p4 = u/2 - me^2;
+id p2.p3 = u/2 - me^2;
 *id me = 0;
 
 Bracket e, ge, me, mX;

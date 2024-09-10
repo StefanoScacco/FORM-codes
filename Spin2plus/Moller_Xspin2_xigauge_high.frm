@@ -69,28 +69,28 @@ print;
 .sort
 
 * impose these constraints to simplify result
-id q.q^-1 = t^-1;
-id k.k^-1 = u^-1;
-id l.l^-1 = s^-1;
+id q.q^-1 = -t^-1;
+id k.k^-1 = -u^-1;
+id l.l^-1 = -s^-1;
 id p1.p1 = -me^2;
 id p2.p2 = -me^2;
 id p3.p3 = -me^2;
 id p4.p4 = -me^2;
-id p1.p2 = s/2 + me^2;
-id p3.p4 = s/2 + me^2;
-id p1.p3 = -t/2 - me^2;
-id p2.p4 = -t/2	- me^2;
-id p1.p4 = -u/2 - me^2;
-id p2.p3 = -u/2	- me^2;
+id p1.p2 = -s/2 + me^2;
+id p3.p4 = -s/2 + me^2;
+id p1.p3 = t/2 - me^2;
+id p2.p4 = t/2 - me^2;
+id p1.p4 = u/2 - me^2;
+id p2.p3 = u/2 - me^2;
 *id me = 0;
 
 * to simplify for high angle scattering, you may use these constraints. x = \sqrt{|s|}
-id s = -4*E^2;
+id s = 4*E^2;
 id t = u;
-id u = 2*p^2;
-id s^-1 = -(4*E^2)^-1;
+id u = -2*p^2;
+id s^-1 = (4*E^2)^-1;
 id t^-1 = u^-1;
-id u^-1 = (2*p^2)^-1;
+id u^-1 = -(2*p^2)^-1;
 id p^2 = E^2 - me^2;
 id E = x/2;
 

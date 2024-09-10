@@ -76,15 +76,15 @@ id p2.p2 = 0;
 id p2.eps = 0;
 
 * kinematics constraints
-id q1.q2 = s/2;
-id q1.p1 = -t/2;
-id q1.p2 = -u/2;
-id p1.p2 = s/2;
-id q2.p2 = -t/2;
-id q2.p1 = -u/2;
+id q1.q2 = -s/2;
+id q1.p1 = t/2;
+id q1.p2 = u/2;
+id p1.p2 = -s/2;
+id q2.p2 = t/2;
+id q2.p1 = u/2;
 
-id s = - t - u - mX^2;
-*id t = - s - u - mX^2;
+id s = - t - u + mX^2;
+*id t = - s - u + mX^2;
 *id ge = -gg;
 
 Bracket ge, gg, mX, e, Lambda, xi1, xi2;
