@@ -30,12 +30,12 @@ trace4, 2;
 
 * kinematics
 id q.q^-1 = s^-1;
-id p1.p2 = -(E^2 + p^2);
-id p3.p4 = -(E^2 + ppr^2);
-id p1.p3 = -(E^2 - p*ppr*costheta);
-id p2.p4 = -(E^2 - p*ppr*costheta);
-id p1.p4 = -(E^2 + p*ppr*costheta);
-id p2.p3 = -(E^2 + p*ppr*costheta);
+*id p1.p2 = -(E^2 + p^2);
+*id p3.p4 = -(E^2 + ppr^2);
+*id p1.p3 = -(E^2 - p*ppr*costheta);
+*id p2.p4 = -(E^2 - p*ppr*costheta);
+*id p1.p4 = -(E^2 + p*ppr*costheta);
+*id p2.p3 = -(E^2 + p*ppr*costheta);
 id p^2 = E^2 - me^2;
 id ppr^2 = E^2 - mmu^2;
 

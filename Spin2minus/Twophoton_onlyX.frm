@@ -134,16 +134,16 @@ id em3.em3 = 1;
 id em4.em4 = 1;
 
 * start imposing kinematics in s, t, u 
-id q.q = s^2;
-id k.k = t^2;
-id l.l = u^2;
+id q.q = -s;
+id k.k = -t;
+id l.l = -u;
 
-id k1.k2 = s/2;
-id k3.k4 = s/2;
-id k1.k3 = -t/2;
-id k2.k4 = -t/2;
-id k1.k4 = -u/2;
-id k2.k3 = -u/2;
+id k1.k2 = -s/2;
+id k3.k4 = -s/2;
+id k1.k3 = t/2;
+id k2.k4 = t/2;
+id k1.k4 = u/2;
+id k2.k3 = u/2;
 
 * these are all dependent the polarization basis chosen
 id k1.ep2 = 0;
@@ -174,7 +174,7 @@ id k4.em2 = R;
 id k4.ep3 = 0;
 id k4.em3 = 0;
 
-id R^2 = -t*u/(2*s);
+id R^2 = t*u/(2*s);
 
 id ep1.ep2 = 0;
 id ep1.em2 = -1;

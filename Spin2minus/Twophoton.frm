@@ -57,12 +57,12 @@ trace4, 5;
 trace4, 6;
 
 * impose scalar products
-*id k1.k2 = s/2;
-*id k3.k4 = s/2;
-*id k1.k3 = t/2;
-*id k2.k4 = t/2;
-*id k1.k4 = u/2;
-*id k2.k3 = u/2;
+*id k1.k2 = -s/2;
+*id k3.k4 = -s/2;
+*id k1.k3 = -t/2;
+*id k2.k4 = -t/2;
+*id k1.k4 = -u/2;
+*id k2.k3 = -u/2;
 
 Bracket e, me, p;
 
